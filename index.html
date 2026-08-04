@@ -1146,7 +1146,7 @@ var TrendCal=(function(){
     return v('f-first') && v('f-last') &&
       v('f-phone').replace(/\D/g,'').length>=10 &&
       /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('f-email')) &&
-      v('f-biz') && v('f-rev') && v('f-msg').length>=10 && TrendCal.ready();
+      v('f-biz') && v('f-rev') && v('f-msg') && TrendCal.ready();
   }
   function sync(){ btn.disabled=!ok(); }
   ids.forEach(function(id){

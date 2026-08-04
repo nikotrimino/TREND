@@ -360,11 +360,12 @@ footer .lock-tag{font-size:15px;margin:9px 0 0 -3px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
-.field input,.field select{width:100%;background:#fff;border:1px solid var(--hair);border-radius:11px;
+.field input,.field select,.field textarea{width:100%;background:#fff;border:1px solid var(--hair);border-radius:11px;
   color:var(--ink);font:400 16px var(--body);padding:12px 14px;-webkit-appearance:none;appearance:none}
+.field textarea{resize:none;height:110px;line-height:1.5;overflow-y:auto}
 .field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' fill='none' stroke='%236E6E73' stroke-width='1.6'/></svg>");
   background-repeat:no-repeat;background-position:right 14px center}
-.field input:focus,.field select:focus{outline:none;border-color:var(--green)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
 .form .btn-p{width:100%;margin-top:6px}
 .form .fine{font-size:12px;color:var(--gray2);text-align:center;margin:14px 0 0}
 .form .done{text-align:center;padding:30px 0}
@@ -840,6 +841,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
               <option>$1M+</option>
             </select>
           </div>
+          <div class="field"><label for="f-msg">How can we help?</label>
+            <textarea id="f-msg" placeholder="Tell us about your business and what you're hoping to solve. Where's growth stuck? What have you tried?"></textarea>
+          </div>
           <div class="field">
             <label id="cal-label">Availability</label>
             <div class="cal" role="group" aria-labelledby="cal-label">
@@ -1135,14 +1139,14 @@ var TrendCal=(function(){
    TO GO LIVE: send the `payload` object below to your CRM, webhook, or email endpoint
    inside the submit handler, then show the confirmation. */
 (function(){
-  var ids=['f-first','f-last','f-phone','f-email','f-biz','f-rev'];
+  var ids=['f-first','f-last','f-phone','f-email','f-biz','f-rev','f-msg'];
   var btn=document.getElementById('applyBtn');
   function v(id){ return document.getElementById(id).value.trim(); }
   function ok(){
     return v('f-first') && v('f-last') &&
       v('f-phone').replace(/\D/g,'').length>=10 &&
       /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('f-email')) &&
-      v('f-biz') && v('f-rev') && TrendCal.ready();
+      v('f-biz') && v('f-rev') && v('f-msg').length>=10 && TrendCal.ready();
   }
   function sync(){ btn.disabled=!ok(); }
   ids.forEach(function(id){
@@ -1152,13 +1156,7 @@ var TrendCal=(function(){
   });
   TrendCal.listen(sync);
 
-  btn.addEventListener('click',function(){
-    if(!ok()) return;
-    var payload={
-      firstName:v('f-first'), lastName:v('f-last'), phone:v('f-phone'), email:v('f-email'),
-      businessType:v('f-biz'), monthlyRevenue:v('f-rev'), availability:TrendCal.value()
-    };
-    console.log('TREND application:',payload); /* replace with your real submit */
+  function showSuccess(payload){
     var wrap=document.getElementById('formInner');
     wrap.innerHTML='';
     var done=document.createElement('div'); done.className='done';
@@ -1169,6 +1167,43 @@ var TrendCal=(function(){
     p.textContent='Thanks, '+payload.firstName+'. We read every application carefully and will reach out within one business day about '+payload.availability+'.';
     done.appendChild(chk); done.appendChild(h); done.appendChild(p);
     wrap.appendChild(done);
+  }
+
+  btn.addEventListener('click',function(){
+    if(!ok()) return;
+    var payload={
+      firstName:v('f-first'), lastName:v('f-last'), phone:v('f-phone'), email:v('f-email'),
+      businessType:v('f-biz'), monthlyRevenue:v('f-rev'), availability:TrendCal.value(), message:v('f-msg')
+    };
+
+    var origLabel=btn.innerHTML;
+    btn.disabled=true; btn.textContent='Sending\u2026';
+
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        access_key:'ff3a9cce-9a0c-4a64-9095-e0c54b104530',
+        subject:'New TREND application \u2014 '+payload.firstName+' '+payload.lastName,
+        from_name:'buildwithtrend.com',
+        name:payload.firstName+' '+payload.lastName,
+        email:payload.email,
+        phone:payload.phone,
+        business_type:payload.businessType,
+        monthly_revenue:payload.monthlyRevenue,
+        availability:payload.availability,
+        message:payload.message
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(data && data.success){ showSuccess(payload); }
+      else { throw new Error(data && data.message ? data.message : 'submit failed'); }
+    })
+    .catch(function(err){
+      btn.disabled=false; btn.innerHTML=origLabel;
+      alert('Something went wrong sending your application. Please try again, or email hello@buildwithtrend.com.');
+    });
   });
   sync();
 })();

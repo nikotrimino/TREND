@@ -60,7 +60,7 @@ section{padding:var(--sec) 0}
   .rv{opacity:1;transform:none;transition:none}
   .draw,.spark{animation:none!important;clip-path:none!important;display:revert}
   .track{animation:none!important}
-  #rcStage path{stroke-dasharray:none!important}
+  .stat-fade{transition:none!important}
   html{scroll-behavior:auto}
 }
 
@@ -99,29 +99,54 @@ nav.scrolled .navcta:hover{background:var(--green-d)}
 .arw{font-size:15px;transition:transform .2s ease}.btn:hover .arw{transform:translateX(3px)}
 
 /* ---------- hero ---------- */
-.hero{padding:88px 0 92px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:60px;align-items:center}
-.hero .wm{font-size:clamp(72px,10.4vw,152px);line-height:1;animation:fadeL .9s ease both;margin-left:-.02em;display:block}
+.hero{padding:80px 0 88px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.94fr);gap:52px;align-items:center}
+.hero .wm{font-size:clamp(64px,9vw,132px);line-height:1;animation:fadeL .9s ease both;margin-left:-.02em;display:block}
 .draw{animation:draw 1s cubic-bezier(.22,1,.36,1) .55s both}
 @keyframes draw{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes fadeL{from{opacity:0;transform:skewX(-8deg) translateX(-14px)}to{opacity:1;transform:skewX(-8deg) translateX(0)}}
-.hero .hstate{margin:12px 0 0;font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:-.02em;
+.hero .hstate{margin:22px 0 0;font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:-.02em;
   line-height:1;opacity:0;animation:fadeU .8s ease .75s both}
-.hero .sub{margin:22px 0 0;font-size:clamp(18px,1.6vw,21px);color:var(--gray);max-width:36ch;line-height:1.5;
-  opacity:0;animation:fadeU .8s ease .88s both}
-.hero .sub b{color:var(--ink);font-weight:600}
-.hero .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeU .8s ease 1s both}
+.hero .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeU .8s ease 1s both}
 @keyframes fadeU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
 .chartcard{opacity:0;animation:fadeU .9s ease 1.05s both}
 .chartcard .ch-t{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--gray2);margin:0 0 6px}
-.rc-grid line{stroke:#EFEFF2;stroke-width:1}
-.rc-axis line{stroke:#DEDEE3;stroke-width:1.5}
-.rc-ax{font-family:var(--mono);font-size:10px;letter-spacing:.12em;fill:#9A9AA2}
+/* logo lockup tagline */
+.lock{display:inline-block}
+.lock-tag{display:block;font-family:var(--body);font-weight:700;letter-spacing:-.015em;
+  color:var(--ink);white-space:nowrap;line-height:1.1}
+nav .lock-tag{font-size:11px;margin:3px 0 0 -2px}
+.hero .lock-tag{font-size:clamp(16px,1.55vw,22px);margin:12px 0 0;
+  margin-left:calc(clamp(64px,9vw,132px) * -0.075);
+  opacity:0;animation:fadeU .8s ease .62s both}
+footer .lock-tag{font-size:15px;margin:9px 0 0 -3px}
+@media(max-width:420px){nav .lock-tag{display:none}}
+
+/* hero outcome line */
+.hero .outcome{margin:26px 0 0;font-size:clamp(17px,1.6vw,21px);font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);line-height:1.5;padding-left:18px;border-left:3px solid var(--green);max-width:38ch;
+  opacity:0;animation:fadeU .8s ease .88s both}
+
+/* hero stat cycler */
+.stat-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);background:var(--green-t);
+  padding:6px 12px;border-radius:99px}
+.stat-pill .pip{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.stat-num{font-family:var(--disp);font-weight:400;font-size:clamp(64px,8.2vw,112px);line-height:.86;
+  transform:skewX(-8deg);transform-origin:left bottom;margin:18px 0 0;letter-spacing:.01em}
+.stat-num .u{color:var(--green)}
+.stat-lbl{margin:16px 0 0;font-size:clamp(17px,1.5vw,20px);font-weight:600;letter-spacing:-.012em;
+  max-width:24ch;line-height:1.3}
+.stat-how{margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--gray);max-width:36ch;font-style:italic}
+.stat-bars{display:flex;gap:7px;margin:28px 0 0}
+.stat-bars i{display:block;width:26px;height:3px;border-radius:99px;background:var(--hair);
+  position:relative;overflow:hidden}
+.stat-bars i b{position:absolute;inset:0;background:var(--green);transform-origin:left;transform:scaleX(0)}
+.stat-fade{transition:opacity .36s ease,transform .36s ease}
 @media(max-width:940px){
   .hero-grid{grid-template-columns:1fr;gap:40px}
-  .hero .sub{max-width:46ch}
 }
 
 /* ---------- hunters / farmers ---------- */
@@ -159,10 +184,20 @@ nav.scrolled .navcta:hover{background:var(--green-d)}
 /* ---------- shift band ---------- */
 .band{padding:100px 0}
 .band .disp{font-size:clamp(32px,4.9vw,64px);max-width:19ch}
-.pullquote{margin-top:56px;padding-top:34px;border-top:1px solid var(--dhair);max-width:60ch}
-.pullquote p{margin:0;font-size:clamp(18px,2vw,23px);line-height:1.5;color:#EDEDEF;font-weight:500}
-.pullquote .g{color:var(--green-l)}
-.pullquote .src{margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#8a8a90;text-transform:uppercase}
+.bigquote{margin:38px 0 0;padding:0;position:relative}
+/* quote marks are drawn as shapes so the spacing is exact on every platform */
+.bigquote .qmark{display:block;width:clamp(62px,7.2vw,104px);height:auto;
+  fill:var(--green);opacity:.2;pointer-events:none}
+.bigquote .qm-open{margin:0 0 34px}          /* gap under the opening mark */
+.bigquote .qm-close{margin:8px 0 0 auto}     /* gap above the closing mark */
+.bigquote .qt{position:relative;margin:0;font-family:var(--disp);font-weight:400;line-height:.96;
+  letter-spacing:.008em;transform:skewX(-8deg);transform-origin:left bottom;color:#fff;
+  font-size:clamp(34px,6.4vw,88px)}
+.bigquote .qt .g{color:var(--green-l)}
+.qsrc{margin:30px 0 0;padding-top:24px;border-top:1px solid var(--dhair);
+  display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.qsrc span{color:#7c7c85}
 
 /* ---------- venn ---------- */
 .venn-wrap{margin-top:16px}
@@ -351,8 +386,8 @@ nav.scrolled .navcta:hover{background:var(--green-d)}
 footer{background:var(--white);border-top:1px solid var(--hair);padding:56px 0 60px;color:var(--gray)}
 footer .top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
 footer .wm{font-size:26px;color:var(--ink)}
-footer .fstate{margin-top:12px;font-size:18px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
-footer .ftag{margin-top:10px;max-width:42ch;font-size:14px;line-height:1.55}
+
+footer .ftag{margin-top:14px;max-width:42ch;font-size:14px;line-height:1.55}
 footer .fl{display:flex;gap:30px;flex-wrap:wrap;font-size:14px}
 footer .fl a{text-decoration:none;color:var(--gray);transition:color .16s ease}
 footer .fl a:hover{color:var(--green)}
@@ -375,11 +410,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .close .body,.close ul li{font-size:17px}
 }
 </style></head><body>
-<nav><div class="wrap wrap-wide">
-  <a href="#top" style="text-decoration:none" aria-label="TREND home"><span class="wm">TREND&#8202;&#8202;<svg class="sl" style="height:17px" viewBox="0 0 393 470" aria-hidden="true"><path d="M0 470 H50 L393 0 H343 Z"/></svg></span></a>
+<nav><div class="wrap">
+  <a href="#top" class="lock" style="text-decoration:none" aria-label="TREND. Up and to the right."><span class="wm">TREND&#8202;&#8202;<svg class="sl" style="height:17px" viewBox="0 0 393 470" aria-hidden="true"><path d="M0 470 H50 L393 0 H343 Z"/></svg></span><span class="lock-tag">Up and to the right.</span></a>
   <div class="nl">
     <a href="#familiar">Sound familiar?</a>
-    <a href="#why-trend">Why TREND</a>
+    <a href="#why-trend">About TREND</a>
     <a href="#how">How it works</a>
     <a href="#proof">Proof</a>
     <a href="#why-us">Why us?</a>
@@ -388,47 +423,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </div></nav>
 
 <!-- HERO -->
-<header id="top" class="hero"><div class="wrap wrap-wide"><div class="hero-grid">
+<header id="top" class="hero"><div class="wrap"><div class="hero-grid">
   <div>
-    <span class="wm" aria-label="TREND">TREND&#8202;&#8202;<svg class="sl draw" style="height:clamp(48px,7.4vw,108px);width:auto" viewBox="0 0 393 470" aria-hidden="true"><path d="M0 470 H50 L393 0 H343 Z"/></svg></span>
-    <p class="hstate">Up and to the right.</p>
-    <p class="sub">TREND helps companies like yours realize <b>explosive business growth by closing more deals and keeping clients longer</b> through software, service, and strategy.</p>
+    <span class="wm" aria-label="TREND">TREND&#8202;&#8202;<svg class="sl draw" style="height:clamp(44px,6.4vw,94px);width:auto" viewBox="0 0 393 470" aria-hidden="true"><path d="M0 470 H50 L393 0 H343 Z"/></svg></span>
+    <span class="lock-tag">Up and to the right.</span>
+    <h1 class="hstate">Grow faster. Operate better.</h1>
+    <p class="outcome">TREND improves the strategy, systems, and execution behind how your business grows and operates.</p>
     <div class="cta-row">
       <a href="#apply" class="btn btn-p">Apply to work with us <span class="arw">&rarr;</span></a>
       <a href="#how" class="btn btn-g">See how it works</a>
     </div>
   </div>
 
-  <div class="chartcard" id="chartCard">
-    <p class="ch-t">Revenue after TREND</p>
-    <svg viewBox="0 0 580 348" id="revChart" role="img" aria-label="Revenue compounding without limit. The chart builds, then rebuilds at ten times the scale, from one thousand a month up past one million.">
-      <defs>
-        <linearGradient id="rcGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#0FA968" stop-opacity=".17"/>
-          <stop offset="100%" stop-color="#0FA968" stop-opacity="0"/>
-        </linearGradient>
-        <radialGradient id="rcGlow">
-          <stop offset="0%" stop-color="#37D48F" stop-opacity=".9"/>
-          <stop offset="55%" stop-color="#0FA968" stop-opacity=".26"/>
-          <stop offset="100%" stop-color="#0FA968" stop-opacity="0"/>
-        </radialGradient>
-        <clipPath id="rcClip"><rect x="70" y="18" width="500" height="286"/></clipPath>
-      </defs>
-      <g class="rc-grid">
-        <line x1="78" y1="46" x2="552" y2="46"/><line x1="78" y1="160" x2="552" y2="160"/>
-        <line x1="78" y1="226" x2="552" y2="226"/><line x1="78" y1="288" x2="552" y2="288"/>
-      </g>
-      <g class="rc-axis">
-        <line x1="78" y1="30" x2="78" y2="300"/><line x1="78" y1="300" x2="552" y2="300"/>
-        <line x1="72" y1="46" x2="78" y2="46"/><line x1="72" y1="160" x2="78" y2="160"/>
-        <line x1="72" y1="226" x2="78" y2="226"/><line x1="72" y1="288" x2="78" y2="288"/>
-        <line x1="96" y1="300" x2="96" y2="306"/><line x1="250" y1="300" x2="250" y2="306"/>
-        <line x1="372" y1="300" x2="372" y2="306"/><line x1="524" y1="300" x2="524" y2="306"/>
-      </g>
-      <g id="rcY" class="rc-ax" text-anchor="end"></g>
-      <g id="rcX" class="rc-ax" text-anchor="middle"></g>
-      <g id="rcStage" clip-path="url(#rcClip)"></g>
-    </svg>
+  <div class="chartcard" id="statCard" role="region" aria-label="Results TREND clients see">
+    <div class="stat-pill"><span class="pip" aria-hidden="true"></span><span id="stCat">New business</span></div>
+    <div class="stat-num stat-fade" id="stNum">0</div>
+    <p class="stat-lbl stat-fade" id="stLbl">&nbsp;</p>
+    <p class="stat-how stat-fade" id="stHow">&nbsp;</p>
+    <div class="stat-bars" id="stBars" aria-hidden="true"></div>
   </div>
 </div></div></header>
 
@@ -438,7 +450,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <p class="eyebrow">Sound familiar?</p>
     <h2 class="disp">Most businesses are built to win<br>customers or keep them.<br>Growth requires both.</h2>
     <p class="lead">Every business grows in two ways: by winning new customers, and by getting existing customers to stay, spend more, and tell others.</p>
-    <p class="lead" style="margin-top:14px">When one side is weak, the other can only take you so far.</p>
+    <p class="lead" style="margin-top:14px">Doing only one of these things well can only take you so far.</p>
   </div>
 
   <div class="hf">
@@ -477,8 +489,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   <div class="hf-final rv">
     <h3>Real growth happens when <span class="g">both sides</span> work together.</h3>
-    <p>Win new customers. Keep them longer. Grow their value. Then do it again from a stronger starting point.</p>
-    <p><b>TREND</b> connects both sides into one revenue system, so growth stops depending on what you do best and stops being limited by what you do not.</p>
+    <p><b>TREND</b> connects both sides into one revenue system, so you can grow faster and operate efficiently.</p>
   </div>
 
   <div class="sec-cta rv"><a href="#apply" class="btn btn-p">Find your growth gap <span class="arw">&rarr;</span></a><span class="note">See which side is holding your business back, and what it will take to fix it.</span></div>
@@ -487,12 +498,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- THE SHIFT (dark) -->
 <section class="band dark"><div class="wrap">
   <p class="eyebrow rv">The shift</p>
-  <h2 class="disp rv d1" style="margin-top:16px">But the businesses <span class="g">truly winning</span> in 2026 and beyond are the ones who master <span class="g">both</span>.</h2>
 
-  <div class="pullquote rv d2">
-    <p>&ldquo;The purpose of business is to <span class="g">create</span> and <span class="g">keep</span> a customer.&rdquo;</p>
-    <div class="src">Theodore Levitt &middot; Harvard Business School</div>
-  </div>
+  <blockquote class="bigquote rv d1">
+    <svg class="qmark qm-open" viewBox="0 0 100 70" aria-hidden="true"><path d="M0 70 L28 0 H52 L24 70 Z"/><path d="M48 70 L76 0 H100 L72 70 Z"/></svg>
+    <p class="qt">The purpose of business is to <span class="g">create</span> and <span class="g">keep</span> a customer.</p>
+    <svg class="qmark qm-close" viewBox="0 0 100 70" aria-hidden="true"><path d="M0 70 L28 0 H52 L24 70 Z"/><path d="M48 70 L76 0 H100 L72 70 Z"/></svg>
+    <div class="qsrc">Theodore Levitt <span>Harvard Business School</span></div>
+  </blockquote>
 
   <div class="sec-cta rv"><a href="#apply" class="btn btn-p">Apply now <span class="arw">&rarr;</span></a><span class="note">Master both sides with one partner.</span></div>
 </div></section>
@@ -763,15 +775,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="apply-left rv">
       <p class="fitq">How do we know we'll be a good fit?</p>
       <ul class="checklist">
-        <li><span class="ck">&#10003;</span><div><b>You want both sides solved</b><span>More new business and better retention, not one at the expense of the other.</span></div></li>
-        <li><span class="ck">&#10003;</span><div><b>You're ready to move</b><span>You'll change how things are done when the numbers say to.</span></div></li>
-        <li><span class="ck">&#10003;</span><div><b>You'll invest in the business</b><span>You treat the right partner as an investment with a return, not a cost to minimize.</span></div></li>
-        <li><span class="ck">&#10003;</span><div><b>You want a partner, not a vendor</b><span>Someone in the room and on the hook for the result.</span></div></li>
+        <li><span class="ck">&#10003;</span><div><b>You want to experience growth and operational efficiency</b><span>You want more new business, better retention, and the systems and software to scale efficiently.</span></div></li>
+        <li><span class="ck">&#10003;</span><div><b>You're ready to move, now</b><span>You're willing to do whatever it takes to achieve the next level in your business.</span></div></li>
+        <li><span class="ck">&#10003;</span><div><b>You're willing to invest</b><span>You treat the right partner as an investment, understanding this will pay off.</span></div></li>
+        <li><span class="ck">&#10003;</span><div><b>You want a partner, not just another vendor</b><span>You want someone who solves the problems that keep you up at night, and who thinks about your business as much as you do.</span></div></li>
       </ul>
     </div>
 
     <div class="rv d2">
-      <div class="spots"><span class="pip" aria-hidden="true"></span>Apply now &middot; only 3 spots left</div>
+      <div class="spots"><span class="pip" aria-hidden="true"></span>Only 3 spots left in <span id="spotMonth">August</span></div>
       <div class="form" id="formCard">
         <div id="formInner">
           <h3>Start your application</h3>
@@ -841,7 +853,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="top">
     <div>
       <span class="wm">TREND&#8202;&#8202;<svg class="sl" style="height:20px" viewBox="0 0 393 470" aria-hidden="true"><path d="M0 470 H50 L393 0 H343 Z"/></svg></span>
-      <div class="fstate">Up and to the right.</div>
+      <div class="lock-tag">Up and to the right.</div>
       <div class="ftag">The only end to end solution that helps businesses like yours increase revenue, maximize profit, close more deals, and keep clients longer.</div>
       <div class="socials">
         <a href="#" aria-label="TREND on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.4"/></svg></a>
@@ -852,7 +864,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="fl">
       <a href="#familiar">Sound familiar?</a>
-      <a href="#why-trend">Why TREND</a>
+      <a href="#why-trend">About TREND</a>
       <a href="#how">How it works</a>
       <a href="#proof">Proof</a>
       <a href="#why-us">Why us?</a>
@@ -866,131 +878,66 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </div></footer>
 <script>
 
-/* ---------- hero chart: infinite scale build ---------- */
+/* ---------- hero stats ----------
+   EDIT HERE. Two for new business, two for retention, two for operations.
+   val/dec/pre/suf drive the count up, so keep the number in `val`. */
 (function(){
-  var svg=document.getElementById('revChart'); if(!svg) return;
-  var NS='http://www.w3.org/2000/svg';
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var C='M96 288 C 160 286 210 258 250 226 C 292 192 336 190 372 160 C 424 116 480 88 524 46';
-  var MX=[96,250,372,524], MY=[288,226,160,46];
-  var GY=[288,226,160,46], GX=[96,250,372,524];
-  var SETS=[
-    {y:['$1K','$2.5K','$5K','$10K'],     x:['DAY 1','WEEK 1','WEEK 2','MONTH 1']},
-    {y:['$10K','$25K','$50K','$100K'],   x:['MONTH 1','MONTH 3','MONTH 6','YEAR 1']},
-    {y:['$100K','$250K','$500K','$1M+'], x:['YEAR 1','YEAR 2','YEAR 3','YEAR 5']}
+  var STATS=[
+    {cat:'New business', pre:'', val:3.2, dec:1, suf:'\u00D7',
+     lbl:'more qualified leads generated',
+     how:'By turning overlooked buyer signals into targeted, always-on acquisition systems.'},
+    {cat:'Retention', pre:'', val:2.4, dec:1, suf:'\u00D7',
+     lbl:'customer lifetime value',
+     how:'By turning customer data into perfectly timed moments to retain, expand, and re-engage.'},
+    {cat:'Operations', pre:'', val:32, dec:0, suf:' hours',
+     lbl:'returned to high-value work every week',
+     how:'By automating the administrative work surrounding your team\u2019s zone of genius.'},
+    {cat:'New business', pre:'+', val:61, dec:0, suf:'%',
+     lbl:'lead conversion',
+     how:'By rebuilding every step between first click and booked conversation.'},
+    {cat:'Retention', pre:'', val:65, dec:0, suf:'%',
+     lbl:'faster client onboarding',
+     how:'By connecting every handoff from signed agreement to first meaningful win.'},
+    {cat:'Operations', pre:'', val:2.1, dec:1, suf:'\u00D7',
+     lbl:'more projects completed with the same team',
+     how:'By building a custom operating layer that assigns, tracks, and advances work automatically.'}
   ];
-  var ACT=5000, BUILD=3300, TRANS=700, ACTS=3, OUT=900, CYCLE=ACT*ACTS+OUT;
+  var numEl=document.getElementById('stNum'), lblEl=document.getElementById('stLbl');
+  var howEl=document.getElementById('stHow'), catEl=document.getElementById('stCat');
+  var barsEl=document.getElementById('stBars');
+  if(!numEl) return;
+  function fmt(s,v){ return s.pre+v.toFixed(s.dec)+'<span class="u">'+s.suf+'</span>'; }
+  function paint(s){ catEl.textContent=s.cat; lblEl.textContent=s.lbl; howEl.textContent=s.how; }
 
-  var yG=document.getElementById('rcY'), xG=document.getElementById('rcX');
-  var yT=[], xT=[];
-  GY.forEach(function(y){ var t=document.createElementNS(NS,'text');
-    t.setAttribute('x',64); t.setAttribute('y',y+4); yG.appendChild(t); yT.push(t); });
-  GX.forEach(function(x){ var t=document.createElementNS(NS,'text');
-    t.setAttribute('x',x); t.setAttribute('y',324); xG.appendChild(t); xT.push(t); });
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ paint(STATS[0]); numEl.innerHTML=fmt(STATS[0],STATS[0].val); return; }
 
-  /* one drawing group, reused by every act */
-  var stage=document.getElementById('rcStage');
-  var g=document.createElementNS(NS,'g');
-  var area=document.createElementNS(NS,'path');
-  area.setAttribute('d',C+' L524 300 L96 300 Z'); area.setAttribute('fill','url(#rcGrad)');
-  var line=document.createElementNS(NS,'path');
-  line.setAttribute('d',C); line.setAttribute('fill','none'); line.setAttribute('stroke','#0FA968');
-  line.setAttribute('stroke-width','3.5'); line.setAttribute('stroke-linecap','round');
-  g.appendChild(area); g.appendChild(line);
-  var flashes=[], dots=[], i;
-  for(i=0;i<4;i++){ var f=document.createElementNS(NS,'circle');
-    f.setAttribute('cx',MX[i]); f.setAttribute('cy',MY[i]); f.setAttribute('r',i===3?20:16);
-    f.setAttribute('fill','url(#rcGlow)'); f.setAttribute('opacity',0); g.appendChild(f); flashes.push(f); }
-  for(i=0;i<4;i++){ var c=document.createElementNS(NS,'circle');
-    c.setAttribute('cx',MX[i]); c.setAttribute('cy',MY[i]); c.setAttribute('r',i===3?5.5:4.5);
-    c.setAttribute('fill','#fff'); c.setAttribute('stroke','#0FA968'); c.setAttribute('stroke-width','2.5');
-    c.setAttribute('opacity',0); g.appendChild(c); dots.push(c); }
-  stage.appendChild(g);
-  var len=line.getTotalLength();
+  STATS.forEach(function(){ var i=document.createElement('i'); i.innerHTML='<b></b>'; barsEl.appendChild(i); });
+  var bars=[].slice.call(barsEl.querySelectorAll('b'));
+  var HOLD=4900, k=-1, t0=null;  /* time each stat holds, in ms */
 
-  /* scale-up badge */
-  var badge=document.createElementNS(NS,'text');
-  badge.setAttribute('x',548); badge.setAttribute('y',40); badge.setAttribute('text-anchor','end');
-  badge.setAttribute('font-family',"ui-monospace,'SF Mono',Menlo,monospace");
-  badge.setAttribute('font-size','11'); badge.setAttribute('letter-spacing','1.6');
-  badge.setAttribute('fill','#0C8E57'); badge.setAttribute('font-weight','700');
-  badge.setAttribute('opacity',0); badge.textContent='SCALE \u00D7 10';
-  svg.appendChild(badge);
-
-  /* milestone positions along the curve */
-  var fr=[];
-  (function(){ var N=400, pts=[];
-    for(var k=0;k<=N;k++) pts.push(line.getPointAtLength(len*k/N));
-    MX.forEach(function(x){ var best=0,bd=1e9;
-      pts.forEach(function(p,k){ var d=Math.abs(p.x-x); if(d<bd){bd=d;best=k;} });
-      fr.push(best/N); }); })();
-
-  function setLabels(k){
-    for(var i=0;i<4;i++){ yT[i].textContent=SETS[k].y[i]; xT[i].textContent=SETS[k].x[i]; } }
-  function tint(on){
-    for(var i=0;i<4;i++){ var hot=(i===3&&on);
-      yT[i].setAttribute('fill', hot?'#0C8E57':'#9A9AA2');
-      yT[i].setAttribute('font-weight', hot?'700':'400'); } }
-
-  if(reduce){
-    setLabels(2); tint(true); line.style.strokeDasharray='none';
-    dots.forEach(function(d){ d.setAttribute('opacity',1); });
-    area.setAttribute('opacity','0.9'); return;
-  }
-
-  line.style.strokeDasharray=len+' '+len;
-  setLabels(0);
-
-  var t0=null;
   function frame(now){
     if(t0===null) t0=now;
-    var e=(now-t0)%CYCLE;
-    var ending = e>=ACT*ACTS;
-    svg.style.opacity = ending ? Math.max(0,1-(e-ACT*ACTS)/OUT).toFixed(3) : 1;
-
-    var idx = ending ? ACTS-1 : Math.floor(e/ACT);
-    var local = ending ? ACT-1 : e-idx*ACT;
-
-    var raw=Math.min(local/BUILD,1), bp=1-Math.pow(1-raw,3);
-    var last = (idx===ACTS-1);
-    var tp = (local>ACT-TRANS && !last) ? (local-(ACT-TRANS))/TRANS : 0;
-
-    /* draw the act, then let it sink below the new floor */
-    line.style.strokeDashoffset = len*(1-bp);
-    area.setAttribute('opacity',(bp*0.9*(1-tp)).toFixed(3));
-    g.setAttribute('opacity',(1-tp).toFixed(3));
-    g.setAttribute('transform','translate('+(-30*tp).toFixed(2)+','+(22*tp).toFixed(2)+') scale('+(1-0.07*tp).toFixed(4)+')');
-    for(var i=0;i<4;i++){
-      var hit = bp>=fr[i]-0.004;
-      dots[i].setAttribute('opacity', hit?(1-tp).toFixed(3):0);
-      var age=(bp-fr[i])/0.10;
-      flashes[i].setAttribute('opacity',(hit&&age<1)?((1-age)*0.9).toFixed(3):0);
-    }
-
-    /* axis rolls up to the next range */
-    if(tp>0){
-      badge.setAttribute('opacity', (Math.sin(tp*Math.PI)*0.95).toFixed(3));
-      if(tp<0.5){ setLabels(idx); tint(false);
-        yG.setAttribute('opacity',(1-tp*2).toFixed(3)); xG.setAttribute('opacity',(1-tp*2).toFixed(3));
-        yG.setAttribute('transform','translate(0,'+(-9*tp*2).toFixed(2)+')');
-        xG.setAttribute('transform','translate('+(-9*tp*2).toFixed(2)+',0)');
-      }else{ setLabels(idx+1); tint(false);
-        var q=(tp-0.5)*2;
-        yG.setAttribute('opacity',q.toFixed(3)); xG.setAttribute('opacity',q.toFixed(3));
-        yG.setAttribute('transform','translate(0,'+(9*(1-q)).toFixed(2)+')');
-        xG.setAttribute('transform','translate('+(9*(1-q)).toFixed(2)+',0)');
-      }
-    }else{
-      badge.setAttribute('opacity',0);
-      setLabels(idx); tint(bp>=fr[3]-0.004);
-      yG.setAttribute('opacity',1); xG.setAttribute('opacity',1);
-      yG.setAttribute('transform','translate(0,0)'); xG.setAttribute('transform','translate(0,0)');
-    }
-
+    var e=(now-t0)%(HOLD*STATS.length), idx=Math.floor(e/HOLD), local=e-idx*HOLD;
+    if(idx!==k){ k=idx; paint(STATS[idx]); }
+    var s=STATS[idx];
+    var ease=1-Math.pow(1-Math.min(local/1000,1),3);
+    numEl.innerHTML=fmt(s, s.val*ease);
+    var inF=Math.min(local/300,1), outF=local>HOLD-300?(HOLD-local)/300:1, o=Math.min(inF,outF).toFixed(3);
+    numEl.style.opacity=o; lblEl.style.opacity=o; howEl.style.opacity=o;
+    numEl.style.transform='skewX(-8deg) translateY('+((1-inF)*14).toFixed(1)+'px)';
+    lblEl.style.transform=howEl.style.transform='translateY('+((1-inF)*10).toFixed(1)+'px)';
+    bars.forEach(function(b,i){
+      b.style.transform='scaleX('+(i<idx?1:(i===idx?(local/HOLD):0)).toFixed(3)+')'; });
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+})();
+
+/* ---------- current month in the spots badge ---------- */
+(function(){
+  var el=document.getElementById('spotMonth'); if(!el) return;
+  try{ el.textContent=new Date().toLocaleString('en-US',{month:'long'}); }catch(e){}
 })();
 
 /* ---------- sticky nav state ---------- */

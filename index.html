@@ -56,6 +56,10 @@ section{padding:var(--sec) 0;position:relative}
 @keyframes drawUp{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes fadeL{from{opacity:0;transform:skewX(-8deg) translateX(-10px)}to{opacity:1;transform:skewX(-8deg) translateX(0)}}
 .hero-slash{position:absolute;pointer-events:none}
+.hero-slash-mobile{display:none}
+.hero-slash-mobile svg{display:block}
+.hero-slash-mobile path{fill:var(--green)}
+.hero-slash-mobile.draw{animation:drawUp .9s cubic-bezier(.22,1,.36,1) .2s both}
 .hero-slash svg{display:block}
 .hero-slash path{fill:var(--green)}
 .hero-slash.draw{animation:drawUp .9s cubic-bezier(.22,1,.36,1) .45s both}
@@ -74,7 +78,7 @@ section{padding:var(--sec) 0;position:relative}
 
 /* NAV */
 header.nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--hair)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:92px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:92px;padding-left:12px;padding-right:12px}
 .nav-logo img{height:64px;width:auto;display:block}
 .nav-links{display:flex;gap:30px;align-items:center;margin-left:auto;margin-right:28px}
 .nav-links a{font-size:14px;font-weight:500;color:var(--ink);transition:color .15s;position:relative}
@@ -201,6 +205,7 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
   .hero{padding:56px 0 40px;text-align:left}
   .hero>.wrap,.hero>.hero-slash{transform:none!important}
   .hero>.hero-slash{display:none!important}
+  .hero-slash-mobile{display:block;width:88px;margin:6px 0 26px}
   .hero .eyebrow{font-size:11px;margin-bottom:18px}
   .hero h1{font-size:52px;line-height:.9;margin-bottom:20px;word-break:normal;overflow-wrap:break-word}
   .hero .sub{font-size:15px;line-height:1.5}
@@ -211,6 +216,7 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
   /* section headings + intros: clean step-down */
   .eyebrow{font-size:11px}
   h2{font-size:38px!important;line-height:.98!important}
+  .cta h2{font-size:52px!important;line-height:.9!important}
   .states .lead,.sol .lead,.who .lead{font-size:15px!important;line-height:1.55!important;margin-top:16px!important}
   /* buttons */
   .btn-lg{width:100%;justify-content:center}
@@ -243,6 +249,7 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
   :root{--edge:18px}
   .hero h1{font-size:44px}
   h2{font-size:33px!important}
+  .cta h2{font-size:44px!important}
   .nav-logo img{height:38px}
   .nav-cta{font-size:12px;padding:9px 13px}
 }
@@ -267,6 +274,7 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
     <h1>We make brands and<br>businesses <span class="g">more money.</span></h1>
     <p class="sub">Some people have expertise but no brand. Some have a brand but no business. Some have a business that's stuck. Some are winning with nothing underneath them.</p>
     <p class="states-line"><b style="color:var(--ink)">Wherever you are, that's where we start.</b> We meet you in your exact situation and build the bridge from where you are to where you need to be.</p>
+    <div class="hero-slash-mobile draw"><svg viewBox="0 0 393 470" aria-hidden="true"><path d="M0 470 H50 L393 0 H343 Z"/></svg></div>
     <div class="hero-cta">
       <button class="btn btn-p btn-lg" onclick="openQ()">Show me my next move <span class="arw">&rarr;</span></button>
       <span class="note">Five questions. Then we show you exactly what we'd build for your situation.</span>

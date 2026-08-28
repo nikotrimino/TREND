@@ -78,7 +78,7 @@ section{padding:var(--sec) 0;position:relative}
 
 /* NAV */
 header.nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--hair)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:92px;padding-left:12px;padding-right:12px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:92px;padding-left:32px;padding-right:32px}
 .nav-logo img{height:64px;width:auto;display:block}
 .nav-links{display:flex;gap:30px;align-items:center;margin-left:auto;margin-right:28px}
 .nav-links a{font-size:14px;font-weight:500;color:var(--ink);transition:color .15s;position:relative}
@@ -198,14 +198,14 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
 @media(max-width:760px){
   :root{--edge:20px;--sec:72px}
   /* nav */
-  .nav-in{height:auto;padding:14px 0;gap:12px}
+  .nav-in{height:auto;padding:14px 20px;gap:12px}
   .nav-logo img{height:44px}
   .nav-cta{font-size:13px;padding:10px 16px;white-space:nowrap}
   /* HERO */
   .hero{padding:56px 0 40px;text-align:left}
   .hero>.wrap,.hero>.hero-slash{transform:none!important}
   .hero>.hero-slash{display:none!important}
-  .hero-slash-mobile{display:block;width:88px;margin:6px 0 26px}
+  .hero-slash-mobile{display:block;width:88px;margin:6px auto 26px}
   .hero .eyebrow{font-size:11px;margin-bottom:18px}
   .hero h1{font-size:52px;line-height:.9;margin-bottom:20px;word-break:normal;overflow-wrap:break-word}
   .hero .sub{font-size:15px;line-height:1.5}

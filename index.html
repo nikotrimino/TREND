@@ -433,7 +433,7 @@ function render(){
     bar.style.width='100%'; foot.style.display='none';
     body.innerHTML='<div class="q-step q-match"><img class="sl" src="'+SLASH+'" alt=""><h3>Let\'s find your path.</h3>'+
       '<p>Based on what you shared, there\'s a clear next move for your situation. <b>Book your call</b> and we\'ll walk you through the exact package and offering built for where you are &mdash; and where you\'re going.</p>'+
-      '<a class="btn btn-p btn-lg" href="#" onclick="return false" style="justify-content:center">Book your call &rarr;</a>'+
+      '<a class="btn btn-p btn-lg" href="mailto:itsnikotrimino@gmail.com?subject=Booking%20my%20TREND%20call&body=Hi%20TREND%2C%20I%20just%20completed%20the%20questionnaire%20and%20would%20like%20to%20book%20my%20call." style="justify-content:center">Book your call &rarr;</a>'+
       '<p style="font-size:13px;margin-top:20px;color:var(--gray2)">We\'ll follow up within one business day.</p></div>';
   }
 }
@@ -444,19 +444,43 @@ function pick(k,el,i){
   answers[k]=chosen;
   [...el.parentElement.children].forEach(c=>c.classList.remove('sel'));el.classList.add('sel');
 }
-function qNext(){
+async function qNext(){
   const Q=curQ();
-  if(step<TOTAL){ if(!answers[Q[step].k]&&!(answers[Q[step].k+'_own']||'').trim()){alert('Pick an option or tell us in your own words.');return;} step++;render(); }
-  else if(step===TOTAL){
+  if(step<TOTAL){ if(!answers[Q[step].k]&&!(answers[Q[step].k+'_own']||'').trim()){alert('Pick an option or tell us in your own words.');return;} step++;render(); return; }
+  if(step===TOTAL){
     const name=(document.getElementById('fName').value||'').trim();
     const email=(document.getElementById('fEmail').value||'').trim();
-    if(!name||!email){alert('Please add your name and email.');return;}
+    const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!name){alert('Please add your name.');return;}
+    if(!emailOk){alert('Please add a valid email.');return;}
     answers.name=name;answers.email=email;
     answers.phone=(document.getElementById('fPhone').value||'').trim();
     answers.link=(document.getElementById('fLink').value||'').trim();
-    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify(Object.assign({access_key:WEB3KEY,subject:'New TREND lead: '+name,from_name:'TREND Site'},answers))}).catch(()=>{});
-    step++;render();
+    const btn=document.getElementById('qNext');
+    btn.disabled=true; const label=btn.textContent; btn.textContent='Sending…';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify(Object.assign({
+          access_key:WEB3KEY,
+          subject:'New TREND lead: '+name,
+          from_name:'TREND Site',
+          replyto:email
+        },answers))
+      });
+      const data=await res.json().catch(()=>({success:false}));
+      if(res.ok && data.success){
+        step++; render();
+      }else{
+        btn.disabled=false; btn.textContent=label;
+        alert('Something went wrong sending your info. Please try again, or email us directly at itsnikotrimino@gmail.com.');
+      }
+    }catch(err){
+      btn.disabled=false; btn.textContent=label;
+      alert('Network issue — please check your connection and try again, or email itsnikotrimino@gmail.com.');
+    }
+    return;
   }
 }
 function qPrev(){if(step>0){step--;render();}}

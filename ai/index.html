@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Human Layer — TREND /</title>
+<meta name="description" content="The Human Layer: the step-by-step guide for AI avatars that look, move and sound real. The exact tools, prompts, voice settings and second-by-second timing we use, plus a Claude co-pilot. One-time purchase.">
+<meta property="og:title" content="The Human Layer — TREND /">
+<meta property="og:description" content="The step-by-step guide for AI avatars that look, move and sound real. Tools, prompts, voice settings, timing and a Claude co-pilot. One-time purchase.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://buildwithtrend.com/ai">
+<meta property="og:image" content="https://buildwithtrend.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     EDIT THESE ONCE. Everything on the page reads from here.
+     ============================================================ -->
+<script>
+const CONFIG = {
+  productName: "The Human Layer",
+  brand: "TREND",
+  price: "$497",
+  anchorPrice: "$1,499",                 // "" hides the strike-through
+  checkoutUrl: "https://checkout.mailerlite.com/checkout/36263",
+  secondImage: "hero/02.jpg",          // image for the "still not convinced" section
+  secondText: "",   // "" keeps the on-video headline in the HTML; set text to override
+  secondSub: "",
+  supportEmail: "hello@buildwithtrend.com",
+  metaPixelId: ""                      // TREND pixel for buildwithtrend.com. "" = off
+};
+</script>
+
+<style>
+:root{
+  --white:#FFFFFF;--ink:#0D0D0F;--ink2:#141417;--ink3:#1B1B1F;--slate:#F5F5F7;--slate2:#FAFAFB;
+  --green:#0FA968;--green-d:#0C8E57;--green-l:#37D48F;--green-t:rgba(15,169,104,.10);
+  --gray:#6E6E73;--gray2:#86868B;--hair:#E6E6EA;--dhair:rgba(255,255,255,.13);--dgray:#A2A2A9;
+  --disp:'Bebas Neue','Arial Narrow',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Inter,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,'SF Mono','IBM Plex Mono',Menlo,monospace;
+  --max:1120px;--r:16px;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px;overflow-x:clip}
+::selection{background:var(--green);color:#fff}
+img,video,iframe{max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
+.divider{border-top:1px solid var(--hair)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);margin:0 0 12px}
+h1{font-family:var(--disp);font-weight:400;transform:skewX(-8deg);font-size:clamp(38px,5vw,62px);line-height:.92;letter-spacing:.01em;margin:0 0 12px}
+h2{font-family:var(--disp);font-weight:400;transform:skewX(-8deg);transform-origin:left;font-size:clamp(40px,5.6vw,72px);line-height:.92;margin:0 0 16px}
+.center h2{transform-origin:center}
+h3{font-size:19px;line-height:1.25;font-weight:700;margin:0 0 8px}
+.g{color:var(--green)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--gray);max-width:720px;margin:0 0 28px}
+.lead b{color:var(--ink);font-weight:600}
+.sub{font-size:clamp(16px,1.5vw,18px);color:var(--gray);max-width:680px;margin:0 auto 16px}
+.sub b{color:var(--ink);font-weight:600}
+.center{text-align:center}.center .lead,.center .eyebrow{margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font-weight:600;border-radius:100px;padding:15px 28px;font-size:15px;font-family:var(--body);transition:transform .15s,background .2s,box-shadow .2s}
+.btn .arw{display:inline-block;transition:transform .2s}.btn:hover .arw{transform:translateX(4px)}
+.btn-p{background:var(--green);color:#fff}
+.btn-p:hover{background:var(--green-d);box-shadow:0 10px 34px -10px rgba(15,169,104,.7)}
+.btn-lg{padding:18px 34px;font-size:17px}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--dhair)}
+.btn-ghost:hover{border-color:var(--green-l);color:var(--green-l)}
+.note{display:block;margin-top:12px;font-size:14px;color:var(--gray2)}
+.cta-stack{display:flex;flex-direction:column;align-items:center}
+.sec-cta{display:flex;align-items:center;gap:18px;margin-top:44px;flex-wrap:wrap}
+.sec-cta-note{font-size:14px;color:var(--gray)}
+.sec-cta-note.big{font-size:18px;line-height:1.5}
+.sec-cta-note.big s{color:var(--gray2)}
+
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:90;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--hair)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 32px;max-width:1400px;margin:0 auto;gap:24px}
+.nav-logo img{height:54px;width:auto;display:block}
+.nav-cta{font-size:14px;padding:12px 22px;white-space:nowrap;gap:8px}
+.nav-cta s{opacity:.6;font-weight:500}
+.nav-cta b{font-weight:700}
+.timer{display:flex;flex-direction:column;align-items:center;gap:5px;padding:0;background:transparent;color:var(--ink);flex:1}
+.t-row{display:flex;align-items:stretch;gap:14px}
+.t-title{font-family:var(--disp);font-weight:400;font-size:44px;line-height:.9;letter-spacing:.004em;color:var(--green);transform:skewX(-8deg);transform-origin:left;white-space:nowrap;display:flex;align-items:center;padding-right:8px}
+.t-clock{display:flex;gap:6px}
+.t-clock .u{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:52px;height:44px;padding:0 8px;border-radius:9px;background:var(--ink);color:#fff;line-height:1}
+.t-clock .u b{font-family:var(--disp);font-weight:400;font-size:26px;letter-spacing:.04em}
+.t-clock .u i{font-style:normal;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--dgray);margin-top:2px}
+.t-sub{font-size:14px;color:var(--gray);line-height:1.2}
+.t-sub s{color:var(--gray2)}
+.t-sub b{color:var(--ink);font-weight:600}
+@media(max-width:1250px){.t-title{font-size:26px}.t-clock .u{min-width:50px}.t-clock .u b{font-size:28px}.t-sub{font-size:11px}}
+@media(max-width:1050px){.nav-in{gap:14px}.t-title{font-size:22px}.t-clock{gap:5px}.t-clock .u{min-width:42px;padding:4px 6px}.t-clock .u b{font-size:22px}.t-clock .u i{font-size:7px}.t-sub{display:none}.nav-cta{font-size:13px;padding:10px 16px}.nav-logo img{height:46px}}
+@media(max-width:900px){.t-title{display:none}.t-sub{display:none}.timer{gap:0}.t-clock .u{min-width:44px;padding:5px}.t-clock .u b{font-size:22px}}
+@media(max-width:560px){.timer{display:none}}
+
+/* hero: Maya full-spread video (site pattern) */
+.mayahero{position:relative;width:100%;background:#fff;line-height:0;overflow:hidden;aspect-ratio:21/9}
+.mayahero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mayahero .mh-still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .9s ease;z-index:2;pointer-events:none;will-change:opacity}
+.mayahero .mh-still.show{opacity:1}
+.mayahero .mh-copy{position:absolute;left:8%;top:50%;transform:translateY(-50%);text-align:left;z-index:4;opacity:0;transition:opacity 1.1s ease;pointer-events:none;line-height:1;max-width:58%;will-change:opacity}
+.mayahero .mh-copy.show{opacity:1;pointer-events:auto}
+.mayahero .mh-copy .eyebrow{margin-bottom:14px;line-height:1.3}
+.mayahero .mh-copy h1{font-size:clamp(44px,6.4vw,112px);line-height:.92;letter-spacing:.004em;transform:skewX(-8deg);transform-origin:left;color:var(--ink);margin:0 0 18px}
+.mayahero .mh-copy .mh-sub{font-size:clamp(16px,1.6vw,22px);color:var(--gray);line-height:1.35;max-width:30ch;margin:0 0 20px}
+.mayahero .mh-copy .mh-sub b{color:var(--ink);font-weight:600}
+.mayahero .mh-copy .note{display:block;line-height:1.4;margin-top:10px}
+.mh-controls{position:absolute;bottom:22px;left:0;right:0;display:flex;gap:12px;justify-content:center;z-index:5}
+.mh-ctrl{width:42px;height:42px;border-radius:50%;border:none;background:rgba(60,60,67,.14);color:#3a3a3c;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s;line-height:0}
+.mh-ctrl:hover{background:rgba(60,60,67,.24);color:#1d1d1f}
+.fold{min-height:100vh;display:flex;flex-direction:column}
+@media(max-width:1050px){.fold{min-height:0}.mayahero{height:auto;aspect-ratio:16/9}}
+.fold header.nav{flex:0 0 auto}
+.fold .mayahero{flex:0 0 auto}
+.stats{background:var(--ink);color:#fff;flex:1 1 auto;display:flex;align-items:center}
+@media(max-width:900px){.fold{min-height:0}}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0;width:100%;max-width:1560px;margin:0 auto;padding:0 20px}
+.stat{padding:22px 24px;border-left:1px solid var(--dhair);display:flex;flex-direction:row;align-items:center;gap:18px}
+.stat>div{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center}
+.stat:first-child{border-left:0}
+.stat b{font-family:var(--disp);font-weight:400;font-size:72px;line-height:.85;color:var(--green-l);transform:skewX(-8deg);transform-origin:left;flex:0 0 auto;margin:0;letter-spacing:-.01em}
+.stat em{display:block;font-style:normal;font-family:var(--disp);font-size:22px;line-height:1;letter-spacing:.06em;color:#fff;transform:skewX(-8deg);transform-origin:left;margin:0 0 6px;white-space:nowrap}
+.stat span{display:block;font-size:13.5px;line-height:1.4;color:var(--dgray)}
+@media(max-width:1250px){.stat b{font-size:54px}.stat em{font-size:19px}.stat span{font-size:12px}.stat{padding:16px 14px;gap:12px}}
+@media(max-width:1050px){.stats{min-height:0}.stats-in{grid-template-columns:1fr 1fr}.stat{border-left:0;border-top:1px solid var(--dhair);padding:22px 24px;gap:18px}.stat:nth-child(odd){border-right:1px solid var(--dhair)}.stat:nth-child(-n+2){border-top:0}.stat b{font-size:64px}.stat em{font-size:22px}.stat span{font-size:14px}}
+@media(max-width:900px){.stats{min-height:0}.stats-in{grid-template-columns:1fr 1fr}.stat{border-left:0;border-top:1px solid var(--dhair);padding:18px 14px}.stat:nth-child(odd){border-right:1px solid var(--dhair)}.stat:nth-child(-n+2){border-top:0}.stat b{font-size:44px;min-width:64px}}
+@media(max-width:520px){.stats-in{grid-template-columns:1fr}.stat{border-right:0!important;border-top:1px solid var(--dhair)}.stat:first-child{border-top:0}}
+@media(max-width:833px){.mayahero{aspect-ratio:4/5}.mayahero .mh-copy{left:6%;max-width:88%;top:auto;bottom:70px;transform:none}.mayahero .mh-copy h1{font-size:44px}.mayahero .mh-copy .mh-sub{font-size:15px}}
+
+/* offer */
+.offer{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.card{background:var(--white);border:1.5px solid var(--hair);border-radius:20px;padding:32px}
+.card.hi{border-color:var(--ink);box-shadow:0 24px 70px -30px rgba(13,13,15,.35)}
+.pname{font-family:var(--disp);font-weight:400;font-size:38px;line-height:.95;transform:skewX(-8deg);transform-origin:left;margin:0 0 14px}
+.price{display:flex;align-items:baseline;gap:14px;margin:8px 0 6px}
+.price .now{font-family:var(--disp);font-size:80px;line-height:.85;letter-spacing:.01em}
+.price .was{font-family:var(--disp);font-size:42px;color:var(--gray2);text-decoration:line-through;text-decoration-color:#E0245E;text-decoration-thickness:4px;line-height:.9}
+.price-note{font-size:14px;color:var(--gray2);margin:0 0 20px}
+.inc{list-style:none;margin:0;padding:0}
+.inc li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--hair);font-size:16px}
+.inc li:first-child{border-top:0}
+.inc .ck{flex:0 0 22px;height:22px;border-radius:50%;background:var(--green-t);color:var(--green-d);display:grid;place-items:center;font-size:13px;font-weight:800;margin-top:2px}
+.inc .v{margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--gray2);white-space:nowrap;padding-top:3px}
+.total{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 0;margin-top:8px;border-top:2px solid var(--ink)}
+.total .t{font-family:var(--disp);font-size:26px;transform:skewX(-8deg)}
+.total .v{font-family:var(--mono);color:var(--gray2);text-decoration:line-through;font-size:15px}
+.sticky-buy{position:sticky;top:112px}
+
+/* grids */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.tile{background:var(--slate);border-radius:20px;padding:28px}
+.tile .n{font-family:var(--disp);font-size:14px;letter-spacing:.14em;color:var(--green-d);margin-bottom:12px}
+.tile p{margin:0;color:var(--gray)}
+
+/* outcomes */
+.outcome{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--hair)}
+.outcome:first-child{border-top:0}
+.outcome .big{flex:0 0 110px;font-family:var(--disp);font-size:52px;line-height:.85;color:var(--green);transform:skewX(-8deg);transform-origin:left}
+.outcome p{margin:0;color:var(--gray)}
+.outcome b{color:var(--ink);font-weight:600}
+
+/* testimonials */
+
+
+
+
+
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.step{background:var(--white);border:1.5px solid var(--hair);border-radius:16px;padding:22px 18px}
+.step .n{font-family:var(--disp);font-size:36px;line-height:.8;color:var(--green);transform:skewX(-8deg);transform-origin:left;margin-bottom:12px}
+.step b{display:block;margin-bottom:6px}
+.step p{margin:0;font-size:14px;color:var(--gray)}
+
+/* faq */
+.faq details{border-top:1px solid var(--hair);padding:18px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--hair)}
+.faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:var(--disp);font-size:26px;color:var(--green);flex:0 0 auto}
+.faq details[open] summary:after{content:"–"}
+.faq p{margin:12px 0 0;color:var(--gray);max-width:760px}
+
+/* dark cta */
+.dark{background:var(--ink);color:#fff;overflow:hidden}
+.dark .eyebrow{color:var(--green-l)}
+.dark .lead,.dark .sub{color:var(--dgray)}
+.dark .note{color:var(--gray2)}
+.dark{padding:0}
+.mh2{aspect-ratio:16/9}
+.thinbar{display:flex;align-items:center;justify-content:center;gap:18px;padding:18px 24px;flex-wrap:wrap}
+.thinbar-t{font-family:var(--disp);font-size:26px;letter-spacing:.02em;line-height:1;transform:skewX(-8deg);color:var(--ink)}
+.thinbar-t .g{color:var(--green)}
+.mh2:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,15,0) 30%,rgba(13,13,15,.55) 65%,rgba(13,13,15,.9) 100%);z-index:3;pointer-events:none}
+.mayahero .mh-copy2{left:7%;right:auto;top:auto;bottom:12%;transform:none;max-width:52%;text-align:left}
+.mayahero .mh-copy2.show{transform:none}
+.mayahero .mh-copy2 .note{color:rgba(255,255,255,.6)}
+@media(max-width:833px){.mayahero .mh-copy2{right:6%;left:6%;max-width:88%;bottom:70px}}
+.mayahero .mh-copy2 h1{color:#fff}
+.mh-copy2 .eyebrow{color:var(--green-l)}
+.mayahero .mh-copy2 .mh-sub{color:rgba(255,255,255,.88)}
+.mayahero .mh-copy.mh-copy2 .mh-sub b{color:#fff}
+.mh2 .mh-ctrl{background:rgba(255,255,255,.18);color:#fff}
+.mh2 .mh-ctrl:hover{background:rgba(255,255,255,.32)}
+/* second hero: full-bleed image with text on it */
+.himg{position:relative;width:100%;margin:0;aspect-ratio:21/9;background:linear-gradient(135deg,#1B1B1F,#0D0D0F);overflow:hidden;line-height:1.2}
+.himg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.himg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,15,0) 40%,rgba(13,13,15,.82) 100%)}
+.himg .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--dgray);font-family:var(--mono);font-size:13px}
+.himg .ht{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:48px var(--edge,32px);text-align:left;color:#fff}
+.himg .ht .in{max-width:var(--max);margin:0 auto}
+.himg .ht b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(40px,6vw,96px);line-height:.9;letter-spacing:.004em;transform:skewX(-8deg);transform-origin:left;color:#fff}
+.himg .ht span{display:block;margin-top:12px;font-size:clamp(15px,1.5vw,20px);color:rgba(255,255,255,.85);max-width:60ch}
+@media(max-width:600px){.himg{aspect-ratio:4/5}.himg .ht{padding:22px 20px}}
+.dark .wrap{padding-top:80px;padding-bottom:80px}
+
+/* footer */
+footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair);padding:60px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.1fr 2fr auto;gap:40px;align-items:start}
+.foot-logo img{width:160px;margin-bottom:14px;display:block}
+.foot-brand .foot-tag{color:#fff;font-weight:600;font-size:18px}
+.foot-brand .foot-sub{color:var(--green-l);font-size:14px;margin-top:4px}
+.foot-brand .foot-copy{font-size:12.5px;color:var(--gray2);margin-top:22px;line-height:1.6}
+.foot-links{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.foot-links h5{font-family:var(--disp);font-weight:400;font-size:19px;letter-spacing:.06em;color:#fff;transform:skewX(-8deg);transform-origin:left;margin:0 0 12px}
+.foot-links ul{list-style:none;margin:0;padding:0}
+.foot-links li{font-size:14px;margin-bottom:9px}
+.foot-links a{color:var(--dgray)}
+.foot-links a:hover{color:var(--green-l)}
+.foot-cta{display:flex;justify-content:flex-end}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr;gap:32px}.foot-cta{justify-content:flex-start}}
+@media(max-width:560px){.foot-links{grid-template-columns:1fr 1fr}}
+.foot-logo img{width:170px;margin-bottom:14px;display:block}
+.foot-tag{color:#fff;font-weight:600;font-size:18px}
+.foot-sub{color:var(--green-l);font-size:14px;margin-top:4px}
+.foot-copy{font-size:12.5px;color:var(--gray2);margin-top:26px}
+
+/* mobile buy bar */
+.buybar{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-top:1px solid var(--hair);display:none;z-index:95}
+.buybar .btn{width:100%;justify-content:center}
+
+@media(max-width:900px){
+  section{padding:64px 0}
+  .nav-in{height:70px;padding:0 22px}.nav-logo img{height:44px}.nav-cta{font-size:13px;padding:10px 16px}.nav-cta{font-size:14px;padding:11px 20px}.timer{gap:10px;padding:6px 8px}
+  .offer,.grid3,.grid2{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .sticky-buy{position:static}
+  .outcome .big{flex-basis:84px;font-size:42px}
+  .buybar{display:block}body{padding-bottom:84px}
+}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.price .now{font-size:64px}}
+
+.shots{column-count:5;column-gap:10px;margin:36px auto 0;max-width:1120px;max-height:560px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%)}
+.shots .shot{display:inline-block;width:100%;break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 10px;border:1px solid var(--hair);border-radius:10px;overflow:hidden}
+.shots .shot img{display:block;width:100%;height:auto}
+@media(max-width:1000px){.shots{column-count:4;max-height:520px}}
+@media(max-width:760px){.shots{column-count:3;max-height:480px}}
+@media(max-width:480px){.shots{column-count:2;max-height:440px;column-gap:8px}.shots .shot{margin-bottom:8px}}
+
+.cast{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:36px}
+.cast .face{position:relative;border-radius:16px;overflow:hidden;background:var(--slate)}
+.cast .face img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.cast .face-l{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(180deg,rgba(13,13,15,0),rgba(13,13,15,.85));color:#fff;display:flex;justify-content:space-between;align-items:baseline;font-size:13px}
+.cast .face-l b{font-family:var(--disp);font-weight:400;font-size:20px;letter-spacing:.03em}
+.compare{margin-top:40px;border:1px solid var(--hair);border-radius:20px;overflow:hidden}
+.cmp-row{display:grid;grid-template-columns:1fr 1.4fr 1.4fr;gap:0;border-top:1px solid var(--hair)}
+.cmp-row>div{padding:18px 20px;font-size:15px;line-height:1.45}
+.cmp-row>div:first-child{font-weight:700}
+.cmp-head{border-top:0;background:var(--slate);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cmp-head>div{font-weight:700}
+.cmp-us{background:rgba(15,169,104,.08);border-left:1px solid var(--hair)}
+.cmp-head .cmp-us{color:var(--green-d)}
+.guar{margin-top:18px;padding:14px 16px;border:1px solid var(--green);border-radius:14px;font-size:14px;line-height:1.45;background:rgba(15,169,104,.06)}
+@media(max-width:900px){.cast{grid-template-columns:repeat(3,1fr)}.cmp-row{grid-template-columns:1fr}.cmp-row>div{padding:12px 16px}.cmp-us{border-left:0}.cmp-head{display:none}}
+
+.stat-hero{background:rgba(15,169,104,.14);box-shadow:inset 0 0 0 1.5px var(--green)}
+.stat-hero b{color:#fff}
+.stat-hero em{color:var(--green-l)}
+.stat-hero strong{color:#fff;font-weight:600}
+.stats-in{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr)}
+.stat{min-width:0}.stat em{white-space:normal!important}.stat b{font-size:clamp(44px,4.6vw,72px)!important}
+.samples{padding:80px 0 72px}
+.sample-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;max-width:1040px;margin-left:auto;margin-right:auto}
+.sample{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:var(--ink);pointer-events:none;user-select:none}
+.sample video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sample video{pointer-events:none;-webkit-user-select:none;user-select:none;background:var(--ink)}
+.sample video::-webkit-media-controls{display:none!important}
+.sample video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+.sample video[src=""]{display:none}
+.sample-ph{position:absolute;inset:0;display:grid;place-items:center;color:#86868b;font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;border:1.5px dashed #333338;border-radius:20px}
+.sample video:not([src=""]) + .sample-ph{display:none}
+.inc.stack li{padding:16px 0;font-size:16px;align-items:flex-start}
+.inc.stack .it{display:flex;flex-direction:column;gap:3px}
+.inc.stack .it b{font-family:var(--disp);font-weight:400;font-size:26px;line-height:1;letter-spacing:.02em;transform:skewX(-8deg);transform-origin:left;display:inline-block}
+.inc.stack .it span{color:var(--gray);font-size:15px;line-height:1.45}
+.inc.stack .v{font-size:14px;color:var(--ink);font-weight:600;padding-top:4px}
+.total.big .t{font-size:30px}
+.total.big .v{font-size:22px}
+.today{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;padding:16px 18px;border-radius:14px;background:var(--ink);color:#fff}
+.today .t{font-family:var(--disp);font-size:30px;transform:skewX(-8deg);transform-origin:left}
+.today .v{font-family:var(--disp);font-size:48px;line-height:.9;color:var(--green-l)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cmp-title{margin-top:72px}
+.trend-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.trend-photo img{width:100%;border-radius:20px;display:block}
+@media(max-width:1100px){.grid4{grid-template-columns:repeat(2,1fr)}.stats-in{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.sample-grid{grid-template-columns:1fr 1fr}.sample:nth-child(3){display:none}.grid4{grid-template-columns:1fr}.trend-grid{grid-template-columns:1fr}.stats-in{grid-template-columns:1fr}.t-title{font-size:26px!important;white-space:normal!important}}
+</style>
+</head>
+<body>
+
+<div class="fold">
+<header class="nav"><div class="nav-in">
+  <a class="nav-logo" href="https://buildwithtrend.com"><img src="media/a79cb2ad7e.png" alt="TREND — Up and to the right."></a>
+  <div class="timer" id="timer">
+    <div class="t-row"><span class="t-title">Launch price for the first 100 people</span></div>
+    <div class="t-sub"><s data-anchor>$1,499</s> → <b data-price>$497</b> for the first 100 buyers. Then it goes back to full price.</div>
+  </div>
+  <a class="btn btn-p nav-cta" href="#buy" data-buy>Get The Human Layer <s data-anchor>$1,499</s> <b data-price>$497</b> <span class="arw">→</span></a>
+</div></header>
+
+<!-- 1 HERO: Maya knocking, full spread -->
+<section class="mayahero" id="top">
+  <video id="mayaPlayer" autoplay muted playsinline poster="media/13263c60fa.jpg"><source src="media/98f638c7b8.mp4" type="video/mp4"></video>
+  <img class="mh-still" id="mhStill" src="media/7f6a1b25bc.jpg" alt="">
+  <div class="mh-copy" id="mhCopy">
+    <p class="eyebrow">The Human Layer · by TREND /</p>
+    <h1>Make AI content<br><span class="g">nobody can tell is AI.</span></h1>
+    <p class="mh-sub"><b>The step-by-step guide for AI avatars that look, move and sound real.</b> The exact tools, prompts, voice settings and second-by-second timing we use, plus a Claude co-pilot that does the hard parts with you.</p>
+    <a class="btn btn-p btn-lg" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a>
+    <span class="note">Instant access. One payment. Claude co-pilot included.</span>
+    <span class="note" style="color:var(--ink);font-weight:600;margin-top:8px">This is the system behind Maya: 50,000+ views overnight on her first post, and a comment section asking how.</span>
+  </div>
+  <div class="mh-controls">
+    <button class="mh-ctrl" id="mhSound" aria-label="Sound"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3L11 6v12L7 14.5H4z" fill="currentColor" stroke="none"/><g id="mhWave"><path d="M15.5 9a4.5 4.5 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></g></svg></button>
+    <button class="mh-ctrl" id="mhReplay" aria-label="Replay"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12a7 7 0 1 0 2-4.9"/><path d="M4 4v4h4"/></svg></button>
+  </div>
+</section>
+<div class="stats"><div class="stats-in">
+  <div class="stat"><b>50K+</b><div><em>Views overnight</em><span>Maya's first post. Nobody could tell she wasn't real, and the comments asked how. This is how.</span></div></div>
+  <div class="stat stat-hero"><b>1</b><div><em>Claude co-pilot, built in</em><span><strong>Your Claude becomes a production studio built just for you.</strong> It writes every prompt, shapes your scripts, listens to your audio and times every glance, pause and laugh to the exact second.</span></div></div>
+  <div class="stat"><b>15</b><div><em>Ways real people move</em><span>A story, a hot take and a confession all move differently. Your character knows all 15. That's why they read as human.</span></div></div>
+  <div class="stat"><b>152</b><div><em>Pages, click by click</em><span>Face, character, personality, voice, timing, video. What to open, what to click, what to paste.</span></div></div>
+</div></div>
+</div><!-- /fold -->
+
+<!-- 1b SAMPLES -->
+<section class="samples" id="samples"><div class="wrap center">
+  <p class="eyebrow">Real samples. 100% AI. Zero cameras.</p>
+  <h2>The best AI avatars on the market.<br><span class="g">See for yourself.</span></h2>
+  <p class="lead" style="margin-left:auto;margin-right:auto"><b>None of these people exist.</b> No actors, no cameras, no reshoots. Every blink, glance and smile below was made with The Human Layer, and you'll make yours the same way.</p>
+  <div class="sample-grid">
+    <div class="sample"><video class="sample-vid" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="none" aria-hidden="true" tabindex="-1" poster="media/05463090cf.jpg" data-src="media/ebcff88ad3.mp4"></video></div>
+    <div class="sample"><video class="sample-vid" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="none" aria-hidden="true" tabindex="-1" poster="media/511afbce1f.jpg" data-src="media/e56cfc4171.mp4"></video></div>
+    <div class="sample"><video class="sample-vid" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" preload="none" aria-hidden="true" tabindex="-1" poster="media/9af1322cab.jpg" data-src="media/fe0f8f40df.mp4"></video></div>
+  </div>
+  <div class="cta-stack" style="margin-top:36px"><a class="btn btn-p btn-lg" href="#buy" data-buy>Make mine look this real <span class="arw">→</span></a><span class="note">Launch price for the first 100 people. Claude Co-Pilot included.</span></div>
+
+</div></section>
+
+
+<!-- 2 WHAT IT IS -->
+<section class="divider" id="what"><div class="wrap">
+  <p class="eyebrow">Why most AI content looks fake</p>
+  <h2>Everyone has the tools.<br>Almost nobody has the human layer.</h2>
+  <p class="lead">A face doesn't make someone feel real. <b>Behavior does.</b> The glance away to remember. The pause before a sincere line. The laugh that lands a beat late. Most AI videos skip all of it, and viewers can tell in two seconds. The Human Layer is the system built around it.</p>
+  <div class="grid3">
+    <div class="tile"><div class="n">LOOK REAL</div><h3>A face that holds.</h3><p>One photoreal master image, locked from every angle, so your character is identical in every photo and every video. Pores, freckles, flyaway hairs. Skin, not a render.</p></div>
+    <div class="tile"><div class="n">MOVE REAL</div><h3>A personality, not a puppet.</h3><p>A personality block gives your character habits people recognize. A beat timeline puts every glance, nod and laugh on the exact second it happens in the audio. Still when it should be still.</p></div>
+    <div class="tile"><div class="n">SOUND REAL</div><h3>A voice that never changes.</h3><p>The voice settings, tags and punctuation that make a script sound spoken, not read. One voice per character, locked forever, so every video sounds like the same person.</p></div>
+  </div>
+  <div class="sec-cta"><a class="btn btn-p btn-lg" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a><span class="sec-cta-note big"><b style="color:var(--ink)">Everything in one purchase. Instant download.</b><br><s>$1,499</s> &nbsp;<b style="color:var(--green-d)">$497</b> &nbsp;for the first 100 people.</span></div>
+</div></section>
+
+<!-- 3 OFFER -->
+<section class="divider" id="buy"><div class="wrap">
+  <div class="offer">
+    <div>
+      <p class="eyebrow">What's inside</p>
+      <h2>Our entire playbook.<br><span class="g">Nothing held back.</span></h2>
+      <p class="lead">The same system we use to build avatars for clients who pay us <b>$5,000+</b>. Here's everything you get today:</p>
+      <ul class="inc stack"><li><span class="ck">✓</span><span class="it"><b>The Complete Guide</b><span>The exact formula and system we use to get 10K clients a month. 152 pages, 8 modules, click by click, from blank page to talking human.</span></span><span class="v">$497 value</span></li><li><span class="ck">✓</span><span class="it"><b>The Claude Co-Pilot</b><span>28 pages of instructions and code that turn your Claude into a production studio built just for you. It writes your prompts, scripts and timing. You just make the calls.</span></span><span class="v">$497 value</span></li><li><span class="ck">✓</span><span class="it"><b>The Arc Library</b><span>15 ways real people move on camera: stories, hot takes, advice, reviews, confessions and more. The reason your videos read as human.</span></span><span class="v">$297 value</span></li><li><span class="ck">✓</span><span class="it"><b>The Personality System</b><span>The template and beat library that give your character habits people recognize, and kill the robotic, over-acted AI look.</span></span><span class="v">$197 value</span></li><li><span class="ck">✓</span><span class="it"><b>Camera &amp; Light Libraries</b><span>The exact cameras, lenses and lighting setups that make an image read as a photograph, not a render.</span></span><span class="v">$147 value</span></li><li><span class="ck">✓</span><span class="it"><b>6 Ready-to-Run Characters</b><span>Prompts for a woman and a man in their 20s, 40s and 65+. Change three details and they're yours.</span></span><span class="v">$147 value</span></li><li><span class="ck">✓</span><span class="it"><b>50 Ways to Make Money With It</b><span>Scene ideas plus 50 ways to use your avatar: content, ads, faceless pages and client work.</span></span><span class="v">$97 value</span></li><li><span class="ck">✓</span><span class="it"><b>Real-Build Troubleshooting</b><span>Every problem we hit and the exact fix, so you skip weeks of burned credits.</span></span><span class="v">$97 value</span></li><li><span class="ck">✓</span><span class="it"><b>Lifetime Updates</b><span>When the AI tools change, your guide changes with them.</span></span><span class="v">INCLUDED</span></li></ul>
+      <div class="total big"><span class="t">Total value</span><span class="v">$1,976</span></div>
+      <div class="today"><span class="t">Your price today</span><span class="v"><span data-price>$497</span></span></div>
+      <div class="sec-cta"><a class="btn btn-p" href="#" data-buy data-direct>Get The Human Layer for <span data-price>$497</span> <span class="arw">→</span></a><span class="sec-cta-note">Back to <s data-anchor>$1,499</s> after the first 100.</span></div>
+    </div>
+
+    <div class="card hi sticky-buy">
+      <p class="eyebrow">Get it today</p>
+      <div class="pname" data-product-name>The Human Layer</div>
+      <div class="price"><span class="now" data-price>$497</span><span class="was" data-anchor>$1,499</span></div>
+      <p class="price-note">One-time. Instant access. No subscription.</p>
+      <a class="btn btn-p btn-lg" style="width:100%;justify-content:center" href="#" data-buy>Get The Human Layer <span class="arw">→</span></a>
+      <span class="note">Secure checkout. Instant delivery.</span>
+      <ul class="inc" style="margin-top:20px;font-size:14px">
+        <li><span class="ck">✓</span><span>No experience needed: every step says what to open, click and paste</span></li>
+        <li><span class="ck">✓</span><span>Claude does the hard parts with you (Co-Pilot included)</span></li>
+        <li><span class="ck">✓</span><span>Unlimited characters, yourself and clients included</span></li>
+        <li><span class="ck">✓</span><span>No camera, no studio, no model, no reshoots</span></li>
+        <li><span class="ck">✓</span><span>Digital product, instant download</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5 TESTIMONIALS -->
+<section class="divider center" id="proof"><div class="wrap">
+  <p class="eyebrow">Proof</p>
+  <h2>Nobody could tell.</h2>
+  <p class="lead">Real comments on the content this system makes. Maya's first post did 50,000+ views overnight, and the most common question in the comments was how.</p>
+  <div class="shots">
+    <div class="shot"><img src="media/10a23e67ac.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/fde42a757b.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/0345c10a6c.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/c471df608f.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/5b0d6abb78.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/87bcf48ac9.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/a90be232aa.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/a5ef3a7678.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/799fd1dd15.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/3aa2296b0c.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/9d0ad848e6.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/62dbf80d59.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/dff691c09b.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/3c208e50ff.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/12bbce4b2f.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/2040f24a1a.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/54d7e1cf0e.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/2c99bed6a1.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/0ecb6ac9ed.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/fb91dadc10.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/1bcb037c62.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/59058ca800.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/55cd51e2b2.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/28581eec28.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/0e9b0d86c6.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/909fae8cd0.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/c0d87c4771.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/ce83f3448b.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/7e770ef831.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/52d97ee371.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/9618c4a608.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/63ab4c6179.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/57807b98e8.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/102971313e.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/a39b5f7c57.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/48681e688d.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/51648e0fd6.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/363f3353d8.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/a314711433.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/d5e33e9b5b.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/d427ff5914.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/a52d7359ca.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/f5ad9d9cc4.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/84f689ea55.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/b19d1d6d20.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/ff7de52fe8.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/adbd5fa5d7.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/66f8acda92.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/14e77adbb8.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/cea01a32cc.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/04d3e494b9.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/6bae25dc83.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/798358bdd7.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/615000484e.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/137a7f5255.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/320f444eb7.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/684b3bdfb3.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/6851ab2c4d.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/56f56ef3e8.jpg" alt="" loading="lazy"></div>
+    <div class="shot"><img src="media/05e9409cf3.jpg" alt="" loading="lazy"></div>
+  </div>
+  <div class="cta-stack" style="margin-top:36px">
+    <a class="btn btn-p btn-lg" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a>
+    <span class="note">Instant access. All the prompts. All the steps.</span>
+  </div>
+</div></section>
+
+<!-- 5b CAST -->
+<section class="divider center" id="cast"><div class="wrap">
+  <p class="eyebrow">None of these people exist</p>
+  <h2>Six faces. Zero photoshoots.</h2>
+  <p class="lead" style="margin-left:auto;margin-right:auto">Every one of them was made with the prompts inside The Human Layer. You get all six as starting points, and you can build anyone you can describe: a new character, a version of yourself, or a client.</p>
+  <div class="cast"><div class="face"><img src="media/a8f199337d.jpg" alt="Maya, an AI character made with The Human Layer"><div class="face-l"><b>MAYA</b><span>26</span></div></div><div class="face"><img src="media/12a877672d.jpg" alt="Jordan, an AI character made with The Human Layer"><div class="face-l"><b>JORDAN</b><span>27</span></div></div><div class="face"><img src="media/ccaa5c401f.jpg" alt="Elena, an AI character made with The Human Layer"><div class="face-l"><b>ELENA</b><span>45</span></div></div><div class="face"><img src="media/dda8d2d332.jpg" alt="Daniel, an AI character made with The Human Layer"><div class="face-l"><b>DANIEL</b><span>45</span></div></div><div class="face"><img src="media/a1953e30d7.jpg" alt="Grace, an AI character made with The Human Layer"><div class="face-l"><b>GRACE</b><span>67</span></div></div><div class="face"><img src="media/244a967393.jpg" alt="Walter, an AI character made with The Human Layer"><div class="face-l"><b>WALTER</b><span>70</span></div></div></div>
+  <div class="cta-stack" style="margin-top:36px"><a class="btn btn-p btn-lg" href="#buy" data-buy>Build mine <span class="arw">→</span></a><span class="note">Six starter characters included. Unlimited characters after that.</span></div>
+</div></section>
+
+<!-- 6 PROCESS -->
+<section class="divider" id="process"><div class="wrap">
+  <p class="eyebrow">How it works</p>
+  <h2>From blank page to a talking human.<br><span class="g">Five steps.</span></h2>
+  <p class="lead">Build the person once, then run the same steps for every video. <b>Claude handles the timing. You make the creative calls.</b></p>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><b>Build the face</b><p>One master headshot from a six-block prompt: real camera, real light, real skin. Pick the best of eight.</p></div>
+    <div class="step"><div class="n">02</div><b>Lock the character</b><p>Angles, a character sheet and a saved identity, so the face never drifts. Then a personality block: how they smile, think and move.</p></div>
+    <div class="step"><div class="n">03</div><b>Write and voice it</b><p>A 30-second script that sounds spoken, with one or two voice tags. One take, and that voice is theirs forever.</p></div>
+    <div class="step"><div class="n">04</div><b>Time the performance</b><p>Upload the audio to Claude. It measures every pause and writes the beat timeline, so each glance and laugh lands on the right second.</p></div>
+    <div class="step"><div class="n">05</div><b>Generate and post</b><p>Scene, sheet, headshot and audio into the video model. Check lips, hands and energy. Caption it, label it as AI, post.</p></div>
+  </div>
+  <div class="sec-cta"><a class="btn btn-p" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a><span class="sec-cta-note big"><b style="color:var(--ink)">Everything you need in one purchase. Instant download.</b><br><s>$1,499</s> &nbsp;<b style="color:var(--green-d)">$497</b> &nbsp;for the first 100 people.</span></div>
+</div></section>
+
+<!-- 6b WHO IT'S FOR -->
+<section class="divider" id="who"><div class="wrap">
+  <p class="eyebrow">Who it's for</p>
+  <h2>Show up every day.<br>Never film every day.</h2>
+  <div class="grid4">
+    <div class="tile"><div class="n">CREATORS</div><h3>Hate the camera? Skip it.</h3><p>Build a character, or an AI version of you, and post daily without getting ready, setting up or filming. Your face, your voice, your time back.</p></div>
+    <div class="tile"><div class="n">FOUNDERS &amp; BRANDS</div><h3>A spokesperson who never needs a reshoot.</h3><p>Product demos, launches, FAQs, ads and welcome videos, in your brand's voice, whenever you need them. Write the script, get the video.</p></div>
+    <div class="tile"><div class="n">MAKE MONEY ONLINE</div><h3>A content business with no camera.</h3><p>Faceless pages, UGC, brand deals and ad creative, all from characters you own. Build them once, post every day, and run as many accounts as you can manage.</p></div>
+    <div class="tile"><div class="n">AGENCIES &amp; FREELANCERS</div><h3>Build avatars for clients. Charge for it.</h3><p>We build these for clients for $5,000 and up. You get the entire method for $497, plus a client-build checklist, so the first project pays for the system ten times over.</p></div>
+  </div>
+  <div class="sec-cta"><a class="btn btn-p btn-lg" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a><span class="sec-cta-note big"><b style="color:var(--ink)">Whoever you are, it works the same way.</b><br><s>$1,499</s> &nbsp;<b style="color:var(--green-d)">$497</b> &nbsp;for the first 100 people.</span></div>
+  <div class="cmp-title"><p class="eyebrow">The difference</p><h2>Why theirs look like AI.<br><span class="g">Why yours won't.</span></h2></div>
+  <div class="compare">
+    <div class="cmp-row cmp-head"><div>What people usually try</div><div>What happens</div><div class="cmp-us">The Human Layer</div></div>
+    <div class="cmp-row"><div>Prompt packs</div><div>A face with no behavior. Reads as AI in two seconds.</div><div class="cmp-us">Face + personality + timing, so it reads as a person.</div></div>
+    <div class="cmp-row"><div>Avatar apps</div><div>Stock faces, stiff delivery, a monthly fee, and everyone's avatar looks the same.</div><div class="cmp-us">Your own characters, unlimited, one-time price.</div></div>
+    <div class="cmp-row"><div>Trial and error</div><div>Weeks of credits burned finding out what doesn't work.</div><div class="cmp-us">Every mistake we made, already fixed, with the troubleshooting to prove it.</div></div>
+  </div>
+  <div class="sec-cta"><a class="btn btn-p" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a><span class="sec-cta-note">One-time. Instant access. Unlimited characters.</span></div>
+</div></section>
+
+<!-- 6c BUILT BY TREND -->
+<section class="divider" id="trend"><div class="wrap"><div class="trend-grid">
+  <div>
+    <p class="eyebrow">Tested and used on our own clients</p>
+    <h2>Built for our clients first.</h2>
+    <p class="lead">We're <b>TREND /</b>, a growth, brand and technology company founded by brothers Christian and Niko Trimino. We build AI avatars for founders and brands who won't go on camera, and The Human Layer is the exact system we use. Every prompt, setting and fix in it was tested on real client videos before it went on the page.</p>
+    <a class="btn btn-p" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a>
+  </div>
+  <div class="trend-photo"><img src="media/37c7ea9603.jpg" alt="Christian and Niko Trimino, founders of TREND /"></div>
+</div></div></section>
+
+<!-- 7 STILL NOT CONVINCED: banner + second video -->
+<section class="divider" id="more" style="padding:0"><div class="wrap center" style="padding:34px 24px 30px">
+  <p class="eyebrow">Win the content game</p>
+  <h2 style="transform-origin:center;font-size:clamp(30px,4vw,54px)">One person. Infinite content. One payment of <span class="g">$497</span>.</h2>
+  <div style="margin-top:20px"><a class="btn btn-p btn-lg" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a></div>
+</div>
+  <div class="mayahero mh2" id="hero2">
+    <video id="mayaPlayer2" muted playsinline preload="metadata" poster="media/4256fef86c.jpg"><source src="media/40a8b46f67.mp4" type="video/mp4"></video>
+    <img class="mh-still" id="mhStill2" src="media/c10fae71e9.jpg" alt="">
+    <div class="mh-copy mh-copy2" id="mhCopy2">
+      <p class="eyebrow">Your turn</p>
+      <h1 data-second-text>First one<br><span class="g">done tonight.</span></h1>
+      <p class="mh-sub" data-second-sub><b>Everyone wants this. Almost nobody knows how.</b> Learn it now, before your feed is full of people who do.</p>
+      <a class="btn btn-p btn-lg" href="#buy" data-buy>I'm Ready! <span class="arw">→</span></a>
+      <span class="note">Instant access. One payment. Claude co-pilot included.</span>
+    </div>
+    <div class="mh-controls">
+      <button class="mh-ctrl" id="mhSound2" aria-label="Sound"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3L11 6v12L7 14.5H4z" fill="currentColor" stroke="none"/><g id="mhWave2"><path d="M15.5 9a4.5 4.5 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></g></svg></button>
+      <button class="mh-ctrl" id="mhReplay2" aria-label="Replay"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12a7 7 0 1 0 2-4.9"/><path d="M4 4v4h4"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- 8 FAQ -->
+<section class="divider faq" id="faq"><div class="wrap">
+  <p class="eyebrow">Good questions</p>
+  <h2>Everything you need to know.</h2>
+  <div style="margin-top:36px">
+  <details><summary>Do I need any experience with AI tools?</summary><p>No. Every step tells you what to open, what to click and what to paste, and the Claude Co-Pilot fills in the prompts with you. If you can follow a recipe, you can follow this.</p></details>
+  <details><summary>What tools do I need, and what do they cost?</summary><p>Three: Higgsfield for images and video (paid credits), ElevenLabs for the voice (the Starter plan), and Claude for the co-pilot (Pro). CapCut is optional and free. The guide names every tool, setting and plan, and links you to Higgsfield.</p></details>
+  <details><summary>Does Claude really do the hard parts?</summary><p>Yes. The Claude Co-Pilot is included. Load it once and Claude writes your prompts, shapes your scripts, measures your audio and writes the second-by-second beat timeline for every video. You make the creative calls; it does the math.</p></details>
+  <details><summary>Will my character look the same every time?</summary><p>Yes. That's what the character sheet, the saved identity and the two references in every video prompt are for. The method shows you exactly how to lock the face so it holds across hundreds of images and videos.</p></details>
+  <details><summary>Can I use myself, or a real person?</summary><p>Yes, with written permission for anyone but you. There's a dedicated path for real people: their photos, a voice clone from one to three minutes of clean recording, and the fixes for when the likeness doesn't come out right.</p></details>
+  <details><summary>How long until my first video?</summary><p>Plan an afternoon for your first character and your first video. Every video after that is faster, because the character, voice and scene are already built and Claude does the timing.</p></details>
+  <details><summary>What if the AI tools change?</summary><p>They will. The system is written around the method, not one model's buttons, and updates are included. When the tools move, the guide moves with them.</p></details>
+  <details><summary>Do I have to label my content as AI?</summary><p>Yes, and the guide shows you how. Label it, get written permission for real people, and never present a character as a real customer. Done right, AI content performs and keeps your audience's trust.</p></details>
+  <details><summary>How is this delivered?</summary><p>Instantly, by email, as a digital download. You'll have it within a minute of checkout.</p></details>
+  <details><summary>Can I get a refund?</summary><p>Because it's a digital product with instant access, all sales are final. If something's broken, you can't find your download, or you get stuck, email us and we'll get you through it.</p></details>
+  </div>
+  <div class="cta-stack" style="margin-top:40px">
+    <a class="btn btn-p btn-lg" href="#buy" data-buy>Get The Human Layer <span class="arw">→</span></a>
+    <span class="note">Questions? <a href="mailto:hello@buildwithtrend.com" data-support style="color:var(--green-d)">hello@buildwithtrend.com</a></span>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><div class="foot-logo"><img src="media/4d5a421be5.png" alt="TREND"></div><div class="foot-tag">Up and to the right.</div><div class="foot-sub">Building brands into businesses.</div><div class="foot-copy">&copy; 2026 TREND. All rights reserved.<br>We help brands and businesses make more money.</div></div><div class="foot-links"><div><h5>Start here</h5><ul><li><a href="https://buildwithtrend.com/#apply">Show me my next move</a></li><li><a href="https://buildwithtrend.com/#problem">Find your ceiling</a></li><li><a href="https://buildwithtrend.com/#solution">See what we would build</a></li><li><a href="#buy" data-buy>The Human Layer</a></li></ul></div><div><h5>For founders</h5><ul><li><a href="https://buildwithtrend.com/#problem">No brand yet</a></li><li><a href="https://buildwithtrend.com/#solution">Brand, no business</a></li><li><a href="https://buildwithtrend.com/#solution">Stuck at a ceiling</a></li><li><a href="https://buildwithtrend.com/#solution">Scaling past $1M</a></li></ul></div><div><h5>What we do</h5><ul><li><a href="https://buildwithtrend.com/#who">A partner, not a vendor</a></li><li><a href="https://buildwithtrend.com/#solution">Brand &amp; content</a></li><li><a href="https://buildwithtrend.com/#solution">Growth &amp; systems</a></li><li><a href="https://buildwithtrend.com/#apply">Work with us</a></li></ul></div></div><div class="foot-cta"><a class="btn btn-ghost" href="https://buildwithtrend.com">Go to buildwithtrend.com <span class="arw">&rarr;</span></a></div></div></div></footer>
+
+<div class="buybar"><a class="btn btn-p" href="#buy" data-buy>Get The Human Layer — <span data-price>$497</span> <span class="arw">→</span></a></div>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-product-name]').forEach(e=>e.textContent=CONFIG.productName);
+  document.querySelectorAll('[data-price]').forEach(e=>e.textContent=CONFIG.price);
+  document.querySelectorAll('[data-anchor]').forEach(e=>{ if(CONFIG.anchorPrice){e.textContent=CONFIG.anchorPrice;} else {e.style.display='none';} });
+  document.querySelectorAll('[data-support]').forEach(e=>{e.textContent=CONFIG.supportEmail; e.href='mailto:'+CONFIG.supportEmail;});
+  document.title = CONFIG.productName + ' — ' + CONFIG.brand;
+  document.querySelectorAll('[data-buy]').forEach(a=>{ if(a.closest('.card')||a.hasAttribute('data-direct')){ a.href=CONFIG.checkoutUrl; a.target='_blank'; a.rel='noopener'; } });
+  // countdown to Jan 1 (Pacific), price resets
+  (function(){ var el=document.getElementById('cd'); if(!el) return;
+    function nextJan1(){ var now=new Date(); var y=now.getFullYear(); var t=new Date(y,0,1,0,0,0); if(t<=now){ t=new Date(y+1,0,1,0,0,0);} return t; }
+    var target=nextJan1(); function pad(n){return (n<10?'0':'')+n;}
+    function tick(){ var d=target-new Date(); if(d<0)d=0; var s=Math.floor(d/1000); var days=Math.floor(s/86400); s%=86400; var h=Math.floor(s/3600); s%=3600; var m=Math.floor(s/60); s%=60;
+      document.getElementById('cd').textContent=days; document.getElementById('ch').textContent=pad(h); document.getElementById('cm').textContent=pad(m); document.getElementById('cs').textContent=pad(s); }
+    tick(); setInterval(tick,1000); })();
+  function mountImg(id,src,alt){ var box=document.getElementById(id); if(!box||!src) return; var img=new Image(); img.alt=alt||''; img.onload=function(){ var ph=box.querySelector('.ph'); if(ph) ph.remove(); box.insertBefore(img,box.firstChild); }; img.src=src; }
+    document.querySelectorAll('[data-second-text]').forEach(e=>{ if(CONFIG.secondText) e.textContent=CONFIG.secondText; });
+  document.querySelectorAll('[data-second-sub]').forEach(e=>{ if(CONFIG.secondSub) e.textContent=CONFIG.secondSub; });
+  (function(){ var v=document.getElementById('mayaPlayer'), copy=document.getElementById('mhCopy'), sound=document.getElementById('mhSound'), replay=document.getElementById('mhReplay'), wave=document.getElementById('mhWave'); if(!v) return;
+    var still=document.getElementById('mhStill'); function reveal(){ if(copy) copy.classList.add('show'); if(still) still.classList.add('show'); } function hide(){ if(copy) copy.classList.remove('show'); if(still) still.classList.remove('show'); }
+    v.addEventListener('ended',function(){ reveal(); });
+    // start the crossfade just before the last frame so there is no jump
+    v.addEventListener('timeupdate',function(){ if(v.duration && v.currentTime>v.duration-0.35 && still && !still.classList.contains('show')) still.classList.add('show'); });
+    setTimeout(function(){ if(copy && !copy.classList.contains('show')) reveal(); },12000);
+    if(wave) wave.style.opacity = v.muted ? '0.35' : '1';
+    if(sound){ sound.addEventListener('click',function(){ v.muted=!v.muted; if(wave) wave.style.opacity = v.muted ? '0.35' : '1'; if(!v.muted){ v.play().catch(function(){}); } }); }
+    if(replay){ replay.addEventListener('click',function(){ hide(); try{v.currentTime=0;}catch(e){} v.play().catch(function(){}); }); }
+  })();
+  (function(){ var v=document.getElementById('mayaPlayer2'), copy=document.getElementById('mhCopy2'), sound=document.getElementById('mhSound2'), replay=document.getElementById('mhReplay2'), wave=document.getElementById('mhWave2'), still=document.getElementById('mhStill2'); if(!v) return;
+    function reveal(){ if(copy) copy.classList.add('show'); if(still) still.classList.add('show'); } function hide(){ if(copy) copy.classList.remove('show'); if(still) still.classList.remove('show'); }
+    var started=false; function start(){ if(started) return; started=true; v.play().catch(function(){}); setTimeout(function(){ if(copy && !copy.classList.contains('show')) reveal(); },14000); }
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) start(); }); },{threshold:.5}).observe(v); } else { start(); }
+    v.addEventListener('ended',function(){ reveal(); });
+    v.addEventListener('timeupdate',function(){ if(v.duration && v.currentTime>v.duration-0.35 && still && !still.classList.contains('show')) still.classList.add('show'); });
+    if(wave) wave.style.opacity = v.muted ? '0.35' : '1';
+    if(sound){ sound.addEventListener('click',function(){ v.muted=!v.muted; if(wave) wave.style.opacity = v.muted ? '0.35' : '1'; if(!v.muted){ v.play().catch(function(){}); } }); }
+    if(replay){ replay.addEventListener('click',function(){ hide(); try{v.currentTime=0;}catch(e){} v.play().catch(function(){}); }); }
+  })(); 
+  if(CONFIG.metaPixelId){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',CONFIG.metaPixelId); fbq('track','PageView');
+    var P={content_name:CONFIG.productName,content_type:'product',currency:'USD',value:parseFloat(CONFIG.price.replace(/[^0-9.]/g,''))||0};
+    var seen=false, offer=document.getElementById('buy');
+    if('IntersectionObserver' in window && offer){ new IntersectionObserver(function(es,o){es.forEach(function(e){ if(e.isIntersecting&&!seen){seen=true;fbq('track','ViewContent',P);o.disconnect();} });},{threshold:.35}).observe(offer); }
+    document.querySelectorAll('.card [data-buy]').forEach(function(a){ a.addEventListener('click',function(){ fbq('track','InitiateCheckout',P); }); });
+  }
+})();
+</script>
+<script>
+/* Sample videos: silent, non-interactive, seamless loop */
+(function(){
+  document.querySelectorAll('.sample-vid').forEach(function(v){
+    v.muted=true;v.defaultMuted=true;v.volume=0;v.loop=true;v.controls=false;
+    var play=function(){var p=v.play();if(p&&p.catch)p.catch(function(){});};
+    v.addEventListener('volumechange',function(){if(!v.muted){v.muted=true;}});
+    v.addEventListener('pause',function(){if(!document.hidden)play();});
+    v.addEventListener('ended',function(){v.currentTime=0;play();});
+    v.addEventListener('contextmenu',function(e){e.preventDefault();});
+    document.addEventListener('visibilitychange',function(){if(!document.hidden)play();});
+    if(v.readyState>=2)play();else v.addEventListener('canplay',play,{once:true});
+  });
+})();
+</script>
+<script>
+/* Load sample videos only when they come near the screen */
+(function(){var vs=[].slice.call(document.querySelectorAll('video.sample-vid[data-src]'));
+function load(v){if(v.dataset.loaded)return;v.dataset.loaded=1;v.src=v.dataset.src;v.preload='auto';v.load();var p=v.play();if(p&&p.catch)p.catch(function(){});}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load(e.target);io.unobserve(e.target);}});},{rootMargin:'400px 0px'});vs.forEach(function(v){io.observe(v);});}else{vs.forEach(load);}})();
+</script>
+</body>
+</html>

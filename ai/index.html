@@ -314,6 +314,22 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
 .trend-photo img{width:100%;border-radius:20px;display:block}
 @media(max-width:1100px){.grid4{grid-template-columns:repeat(2,1fr)}.stats-in{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.sample-grid{grid-template-columns:1fr 1fr}.sample:nth-child(3){display:none}.grid4{grid-template-columns:1fr}.trend-grid{grid-template-columns:1fr}.stats-in{grid-template-columns:1fr}.t-title{font-size:26px!important;white-space:normal!important}}
+
+/* newsletter section */
+.nl{background:#0D0D0F;color:#fff;padding:72px 0}
+.nl .wrap{max-width:720px;text-align:center}
+.nl .eyebrow{color:#0FA968;margin-bottom:14px}
+.nl h2{font-family:'Oswald',Helvetica,Arial,sans-serif;font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:.5px;text-transform:uppercase;color:#fff;margin:0 0 14px}
+.nl p.sub{color:rgba(255,255,255,.72);font-size:17px;line-height:1.5;max-width:46ch;margin:0 auto 28px}
+.nl form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap}
+.nl input[type=email]{flex:1 1 240px;min-width:0;background:#17171B;border:1px solid #2A2A30;border-radius:100px;color:#fff;font-size:16px;padding:16px 22px;outline:none}
+.nl input[type=email]::placeholder{color:#7A7A82}
+.nl input[type=email]:focus{border-color:#0FA968}
+.nl button{flex:0 0 auto;background:#0FA968;color:#fff;border:none;border-radius:100px;font-family:'Oswald',Helvetica,Arial,sans-serif;font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;padding:16px 30px;cursor:pointer;transition:background .2s}
+.nl button:hover{background:#0C8E57}
+.nl .nl-note{color:rgba(255,255,255,.4);font-size:12.5px;margin-top:16px}
+.nl .nl-done{display:none;color:#37D48F;font-family:'Oswald',Helvetica,Arial,sans-serif;font-size:22px;letter-spacing:.04em;text-transform:uppercase;margin-top:6px}
+@media(max-width:520px){.nl form{flex-direction:column}.nl button{width:100%}}
 </style>
 </head>
 <body>
@@ -586,6 +602,20 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
   </div>
 </div></section>
 
+<section class="nl" id="newsletter"><div class="wrap">
+  <p class="eyebrow">Stay in the loop</p>
+  <h2>The best of what's working, in your inbox.</h2>
+  <p class="sub">What's actually landing in AI content right now, behind-the-scenes of what we're building, and the occasional thing that changes how you think about content. No fluff.</p>
+  <form id="nlForm" action="https://assets.mailerlite.com/jsonp/2661796/forms/200551665185588866/subscribe" method="post" target="_blank">
+    <input type="email" name="fields[email]" placeholder="Your email" aria-label="email" autocomplete="email" required>
+    <input type="hidden" name="ml-submit" value="1">
+    <input type="hidden" name="anticsrf" value="true">
+    <button type="submit">Subscribe →</button>
+  </form>
+  <div class="nl-done" id="nlDone">You're in. Check your inbox.</div>
+  <p class="nl-note">One-click unsubscribe anytime. We never share your email.</p>
+</div></section>
+
 <footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><div class="foot-logo"><img src="media/4d5a421be5.png" alt="TREND"></div><div class="foot-tag">Up and to the right.</div><div class="foot-sub">Building brands into businesses.</div><div class="foot-copy">&copy; 2026 TREND. All rights reserved.<br>We help brands and businesses make more money.</div></div><div class="foot-links"><div><h5>Start here</h5><ul><li><a href="https://buildwithtrend.com/#apply">Show me my next move</a></li><li><a href="https://buildwithtrend.com/#problem">Find your ceiling</a></li><li><a href="https://buildwithtrend.com/#solution">See what we would build</a></li><li><a href="#buy" data-buy>The Human Layer</a></li></ul></div><div><h5>For founders</h5><ul><li><a href="https://buildwithtrend.com/#problem">No brand yet</a></li><li><a href="https://buildwithtrend.com/#solution">Brand, no business</a></li><li><a href="https://buildwithtrend.com/#solution">Stuck at a ceiling</a></li><li><a href="https://buildwithtrend.com/#solution">Scaling past $1M</a></li></ul></div><div><h5>What we do</h5><ul><li><a href="https://buildwithtrend.com/#who">A partner, not a vendor</a></li><li><a href="https://buildwithtrend.com/#solution">Brand &amp; content</a></li><li><a href="https://buildwithtrend.com/#solution">Growth &amp; systems</a></li><li><a href="https://buildwithtrend.com/#apply">Work with us</a></li></ul></div></div><div class="foot-cta"><a class="btn btn-ghost" href="https://buildwithtrend.com">Go to buildwithtrend.com <span class="arw">&rarr;</span></a></div></div></div></footer>
 
 <div class="buybar"><a class="btn btn-p" href="#buy" data-buy>Get The Human Layer — <span data-price>$497</span> <span class="arw">→</span></a></div>
@@ -658,6 +688,10 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
 (function(){var vs=[].slice.call(document.querySelectorAll('video.sample-vid[data-src]'));
 function load(v){if(v.dataset.loaded)return;v.dataset.loaded=1;v.src=v.dataset.src;v.preload='auto';v.load();var p=v.play();if(p&&p.catch)p.catch(function(){});}
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load(e.target);io.unobserve(e.target);}});},{rootMargin:'400px 0px'});vs.forEach(function(v){io.observe(v);});}else{vs.forEach(load);}})();
+
+(function(){ var f=document.getElementById('nlForm'); if(!f) return;
+  f.addEventListener('submit',function(){ setTimeout(function(){ f.style.display='none'; var d=document.getElementById('nlDone'); if(d) d.style.display='block'; },300); });
+})();
 </script>
 </body>
 </html>

@@ -29,7 +29,7 @@ const CONFIG = {
   secondText: "",   // "" keeps the on-video headline in the HTML; set text to override
   secondSub: "",
   supportEmail: "hello@buildwithtrend.com",
-  metaPixelId: ""                      // TREND pixel for buildwithtrend.com. "" = off
+  metaPixelId: "1089317664017447"     // TREND pixel for buildwithtrend.com. "" = off
 };
 </script>
 
@@ -606,7 +606,7 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
   <p class="eyebrow">Stay in the loop</p>
   <h2>Our best moves,<br><span class="g">in your inbox.</span></h2>
   <p class="sub">The secrets, tools and strategies we use to scale brands and businesses, sent weekly, along with news, fresh insights, free value and exclusive promos.</p>
-  <form id="nlForm" action="https://assets.mailerlite.com/jsonp/2661796/forms/200551665185588866/subscribe" method="post" target="_blank">
+  <form id="nlForm" action="https://assets.mailerlite.com/jsonp/2661796/forms/200551665185588866/subscribe" method="post">
     <input type="email" name="fields[email]" placeholder="Your email" aria-label="email" autocomplete="email" required>
     <input type="hidden" name="ml-submit" value="1">
     <input type="hidden" name="anticsrf" value="true">
@@ -689,9 +689,13 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
 function load(v){if(v.dataset.loaded)return;v.dataset.loaded=1;v.src=v.dataset.src;v.preload='auto';v.load();var p=v.play();if(p&&p.catch)p.catch(function(){});}
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load(e.target);io.unobserve(e.target);}});},{rootMargin:'400px 0px'});vs.forEach(function(v){io.observe(v);});}else{vs.forEach(load);}})();
 
-(function(){ var f=document.getElementById('nlForm'); if(!f) return;
-  f.addEventListener('submit',function(){ setTimeout(function(){ f.style.display='none'; var d=document.getElementById('nlDone'); if(d) d.style.display='block'; },300); });
-})();
+(function(){var f=document.getElementById('nlForm');if(!f)return;
+f.addEventListener('submit',function(ev){ev.preventDefault();
+var email=f.querySelector('input[type=email]');if(!email||!email.value)return;
+var body=new URLSearchParams();body.append('fields[email]',email.value);body.append('ml-submit','1');body.append('anticsrf','true');
+fetch(f.action,{method:'POST',body:body,headers:{'Content-Type':'application/x-www-form-urlencoded'}}).catch(function(){}).finally(function(){
+f.style.display='none';var d=document.getElementById('nlDone');if(d)d.style.display='block';});
+});})();
 </script>
 </body>
 </html>

@@ -133,7 +133,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:90;backgroun
 @media(max-width:1050px){.stats{min-height:0}.stats-in{grid-template-columns:1fr 1fr}.stat{border-left:0;border-top:1px solid var(--dhair);padding:22px 24px;gap:18px}.stat:nth-child(odd){border-right:1px solid var(--dhair)}.stat:nth-child(-n+2){border-top:0}.stat b{font-size:64px}.stat em{font-size:22px}.stat span{font-size:14px}}
 @media(max-width:900px){.stats{min-height:0}.stats-in{grid-template-columns:1fr 1fr}.stat{border-left:0;border-top:1px solid var(--dhair);padding:18px 14px}.stat:nth-child(odd){border-right:1px solid var(--dhair)}.stat:nth-child(-n+2){border-top:0}.stat b{font-size:44px;min-width:64px}}
 @media(max-width:520px){.stats-in{grid-template-columns:1fr}.stat{border-right:0!important;border-top:1px solid var(--dhair)}.stat:first-child{border-top:0}}
-@media(max-width:833px){#top.mayahero{aspect-ratio:auto;height:auto;background:#ece9e6;display:block;margin:0;padding:0}.fold{min-height:0}#top.mayahero video{position:relative;inset:auto;width:100%;height:125vw;max-height:620px;object-fit:cover;object-position:50% center;display:block}#top.mayahero .mh-still{display:none}#top.mayahero .mh-copy{position:static;opacity:1 !important;left:0;right:0;max-width:none;transform:none;background:#fff;padding:24px 7% 20px;color:var(--ink);line-height:normal}#top.mayahero .mh-copy h1{font-size:30px;line-height:1.04;color:var(--ink);margin:0 0 14px}#top.mayahero .mh-copy .mh-sub{font-size:15px;line-height:1.45;max-width:none;color:#444;margin:0 0 18px}#top.mayahero .mh-copy .eyebrow{font-size:11px;letter-spacing:.14em;margin-bottom:12px}#top.mayahero .mh-copy .btn-lg{font-size:15px;padding:15px 26px;width:auto;display:inline-flex}#top.mayahero .mh-copy .note{font-size:12px;line-height:1.45;margin-top:10px}#top .mh-controls{bottom:10px}}
+@media(max-width:833px){#top.mayahero{aspect-ratio:3/4;background:#ece9e6}.fold{min-height:0}#top.mayahero video,#top.mayahero .mh-still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% center;display:block}#top.mayahero .mh-copy{position:absolute;opacity:1 !important;left:6%;right:6%;max-width:none;top:auto;bottom:12%;transform:none;color:#fff;z-index:4}#top.mayahero .mh-copy h1{font-size:30px;line-height:1.04;color:#fff;margin:0 0 12px}#top.mayahero .mh-copy .mh-sub{font-size:14px;line-height:1.4;max-width:34ch;color:#f0f0f0;margin:0 0 14px}#top.mayahero .mh-copy .eyebrow{font-size:11px;letter-spacing:.14em;margin-bottom:10px;color:#fff}#top.mayahero .mh-copy .btn-lg{font-size:14px;padding:13px 22px;width:auto;display:inline-flex}#top.mayahero .mh-copy .note{font-size:11px;color:#ddd;margin-top:8px}#top.mayahero .mh-copy::before{content:"";position:absolute;left:-6%;right:-6%;bottom:-120%;top:-10%;background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,.35),transparent);z-index:-1}#top .mh-controls{bottom:10px}}
 
 /* offer */
 .offer{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
@@ -197,7 +197,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:90;backgroun
 .dark .lead,.dark .sub{color:var(--dgray)}
 .dark .note{color:var(--gray2)}
 .dark{padding:0}
-.mh2{aspect-ratio:16/9}@media(max-width:833px){.mayahero.mh2{aspect-ratio:3/4}}
+.mh2{aspect-ratio:16/9}
 .thinbar{display:flex;align-items:center;justify-content:center;gap:18px;padding:18px 24px;flex-wrap:wrap}
 .thinbar-t{font-family:var(--disp);font-size:26px;letter-spacing:.02em;line-height:1;transform:skewX(-8deg);color:var(--ink)}
 .thinbar-t .g{color:var(--green)}
@@ -205,7 +205,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:90;backgroun
 .mayahero .mh-copy2{left:7%;right:auto;top:auto;bottom:12%;transform:none;max-width:52%;text-align:left}
 .mayahero .mh-copy2.show{transform:none}
 .mayahero .mh-copy2 .note{color:rgba(255,255,255,.6)}
-@media(max-width:833px){.mayahero .mh-copy2{left:7%;right:7%;max-width:none;top:9%;bottom:auto;transform:none}.mayahero .mh-copy2 h1{font-size:32px;line-height:1.02;margin:0 0 14px}.mayahero .mh-copy2 .mh-sub{font-size:15px;line-height:1.45;max-width:34ch;margin:0 0 18px}.mayahero .mh-copy2 .eyebrow{font-size:11px;letter-spacing:.14em;margin-bottom:12px}.mayahero .mh-copy2 .btn-lg{font-size:15px;padding:14px 24px;width:auto;display:inline-flex}.mayahero .mh-copy2 .note{font-size:12px;line-height:1.4}}
+@media(max-width:833px){.mayahero .mh-copy2{right:6%;left:6%;max-width:88%;bottom:70px}}
 .mayahero .mh-copy2 h1{color:#fff}
 .mh-copy2 .eyebrow{color:var(--green-l)}
 .mayahero .mh-copy2 .mh-sub{color:rgba(255,255,255,.88)}

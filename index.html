@@ -90,6 +90,7 @@ header.nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.82);bac
 /* HERO */
 .hero{padding:clamp(80px,13vh,150px) 0 clamp(70px,11vh,120px);overflow:hidden}
 .hero>.wrap,.hero>.hero-slash{transform:translateX(-6%)}
+@media(max-width:900px){.hero>.wrap,.hero>.hero-slash{transform:none}.hero{overflow:hidden}}
 .hero>.hero-slash{transform:translateX(-6%) translateY(-50%)!important}
 .hero .eyebrow{margin-bottom:24px}
 .hero h1{font-family:var(--disp);font-weight:400;transform:skewX(-8deg);transform-origin:left;line-height:.88;letter-spacing:.006em;font-size:clamp(52px,10vw,140px);margin-bottom:28px}

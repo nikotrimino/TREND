@@ -347,7 +347,7 @@ footer{background:var(--ink);color:var(--dgray);border-top:1px solid var(--dhair
   <p class="eyebrow">Stay in the loop</p>
   <h2>Our best moves,<br><span class="g">in your inbox.</span></h2>
   <p class="sub">The secrets, tools and strategies we use to scale brands and businesses, sent weekly, along with news, fresh insights, free value and exclusive promos.</p>
-  <form id="nlForm" action="https://assets.mailerlite.com/jsonp/2661796/forms/200551665185588866/subscribe" method="post" target="_blank">
+  <form id="nlForm" action="https://assets.mailerlite.com/jsonp/2661796/forms/200551665185588866/subscribe" method="post">
     <input type="email" name="fields[email]" placeholder="Your email" aria-label="email" autocomplete="email" required>
     <input type="hidden" name="ml-submit" value="1">
     <input type="hidden" name="anticsrf" value="true">
@@ -515,4 +515,10 @@ async function qNext(){
 }
 function qPrev(){if(step>0){step--;render();}}
 </script>
-<script>(function(){var f=document.getElementById('nlForm');if(!f)return;f.addEventListener('submit',function(){setTimeout(function(){f.style.display='none';var d=document.getElementById('nlDone');if(d)d.style.display='block';},300);});})();</script></body></html>
+<script>(function(){var f=document.getElementById('nlForm');if(!f)return;
+f.addEventListener('submit',function(ev){ev.preventDefault();
+var email=f.querySelector('input[type=email]');if(!email||!email.value)return;
+var body=new URLSearchParams();body.append('fields[email]',email.value);body.append('ml-submit','1');body.append('anticsrf','true');
+fetch(f.action,{method:'POST',body:body,headers:{'Content-Type':'application/x-www-form-urlencoded'}}).catch(function(){}).finally(function(){
+f.style.display='none';var d=document.getElementById('nlDone');if(d)d.style.display='block';});
+});})();</script></body></html>
